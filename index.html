@@ -6,170 +6,378 @@
 <title>The Best Online Islamic Center</title>
 
 <style>
-body{
+
+/* RESET */
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial, sans-serif;
-background:#000;
-color:white;
-text-align:center;
 }
 
+body{
+background:#050816;
+color:white;
+}
+
+/* HERO */
 .hero{
-padding:80px 20px;
-background:linear-gradient(135deg,#000,#002b7f);
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#000,#001f5c,#0f172a);
+padding:20px;
 }
 
 .logo{
-width:150px;
+width:110px;
+height:110px;
+object-fit:cover;
 border-radius:50%;
-margin-bottom:20px;
+border:3px solid #D4AF37;
+box-shadow:0 0 15px rgba(212,175,55,0.4);
+margin-bottom:15px;
 }
 
 h1{
-color:gold;
+color:#D4AF37;
+font-size:2.5rem;
+margin-bottom:10px;
 }
 
+#typing{
+color:white;
+font-size:1.5rem;
+min-height:40px;
+margin-bottom:10px;
+}
+
+/* BUTTON */
 .btn{
 display:inline-block;
-padding:15px 30px;
-background:gold;
+background:#D4AF37;
 color:black;
+padding:14px 28px;
 text-decoration:none;
+border-radius:8px;
 font-weight:bold;
-border-radius:10px;
-margin-top:20px;
+transition:0.3s;
+margin-top:10px;
 }
 
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* COUNTERS */
+.stats{
+padding:70px 20px;
+text-align:center;
+background:#000b1f;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.stat-box{
+padding:30px 50px;
+border:1px solid #D4AF37;
+border-radius:12px;
+background:#111;
+box-shadow:0 0 15px rgba(212,175,55,0.2);
+min-width:180px;
+}
+
+.stat-box h2{
+font-size:45px;
+color:#D4AF37;
+margin-bottom:10px;
+transition:0.3s;
+}
+
+/* ABOUT */
+.about{
+padding:70px 20px;
+text-align:center;
+}
+
+.about h2{
+color:#D4AF37;
+margin-bottom:20px;
+}
+
+.about p{
+max-width:800px;
+margin:15px auto;
+line-height:1.8;
+}
+
+/* COURSES */
+.courses{
+padding:70px 20px;
+text-align:center;
+background:#001a33;
+}
+
+.course-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
+margin-top:30px;
+}
+
+.card{
+background:#111;
+border:1px solid #D4AF37;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(212,175,55,0.4);
+}
+
+/* TEACHERS */
+.teachers{
+padding:70px 20px;
+text-align:center;
+}
+
+.teacher-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+margin-top:30px;
+}
+
+.teacher{
+background:#111;
+border:1px solid #D4AF37;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.teacher:hover{
+transform:translateY(-10px);
+}
+
+.teacher img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:10px;
+border:2px solid #D4AF37;
+}
+
+/* CONTACT */
 .contact{
-padding:50px 20px;
+padding:60px 20px;
+text-align:center;
+background:#001a33;
 }
 
+.contact h2{
+color:#D4AF37;
+margin-bottom:10px;
+}
+
+/* FOOTER */
 footer{
 background:#111;
+text-align:center;
 padding:20px;
 }
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+animation:pulse 2s infinite;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 
-<img src="logo.png" class="logo">
+<img src="logo.jpg" class="logo">
 
 <h1>The Best Online Islamic Center</h1>
 
+<h2 id="typing"></h2>
+
+<p>Learn Quran, Tajweed and Islamic Studies from qualified teachers at home.</p>
+
+<a href="https://wa.me/923139271282" class="btn">Contact on WhatsApp</a>
+
+</section>
+
+<!-- COUNTERS -->
+<section class="stats">
+
+<div class="stat-box">
+<h2 id="students">0+</h2>
+<p>Active Students</p>
+</div>
+
+<div class="stat-box">
+<h2 id="enrolled">0+</h2>
+<p>Enrolled Students</p>
+</div>
+
+<div class="stat-box">
+<h2 id="sessions">0+</h2>
+<p>Completed Sessions</p>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+
+<h2>About Us</h2>
+
 <p>
-Learn Quran Online From Qualified Teachers<br>
-Anywhere In The World
+We provide professional online Quran education with experienced teachers for students worldwide.
 </p>
+
+<p>
+Our goal is to spread Islamic knowledge with quality teaching and flexible online classes.
+</p>
+
+</section>
+
+<!-- COURSES -->
 <section class="courses">
 
-<h2 style="color:gold;">Our Online Courses</h2>
+<h2 style="color:#D4AF37;">Our Courses</h2>
 
 <div class="course-box">
 
-<div class="card">
-<h3>Noorani Qaida</h3>
-<p>Essential beginner course that teaches Arabic alphabet and basic reading skills.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Noorani%20Qaida%20course">
-Enroll Now
-</a>
+<div class="card">Noorani Qaida</div>
+<div class="card">Nazra Quran</div>
+<div class="card">Tajweed Rules</div>
+<div class="card">Hifz Program</div>
+<div class="card">Hadith Studies</div>
+<div class="card">Aqeedah</div>
+<div class="card">Fiqh</div>
+<div class="card">Seerah</div>
+
 </div>
 
-<div class="card">
-<h3>Nazra Quran</h3>
-<p>Fluent Quran recitation from start to finish with proper guidance.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Nazra%20Quran%20course">
-Enroll Now
-</a>
+</section>
+
+<!-- TEACHERS -->
+<section class="teachers">
+
+<h2 style="color:#D4AF37;">Our Teachers</h2>
+
+<div class="teacher-box">
+
+<div class="teacher">
+<img src="teacher1.jpeg">
+<h3>Female Teacher</h3>
 </div>
 
-<div class="card">
-<h3>Tajweed Rules</h3>
-<p>Learn correct pronunciation and rules of Quran recitation.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Tajweed%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Hifz (Quran Memorization)</h3>
-<p>Structured Quran memorization with expert guidance.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Hifz%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Hadith Studies</h3>
-<p>Study sayings and actions of Prophet Muhammad ﷺ.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Hadith%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Akhlaq & Adaab</h3>
-<p>Learn Islamic manners, ethics and daily life behavior.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Akhlaq%20and%20Adaab%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Aqeedah (Beliefs)</h3>
-<p>Core Islamic beliefs including Tawheed and fundamentals of faith.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Aqeedah%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Fiqh (Islamic Law)</h3>
-<p>Learn daily Islamic rulings like prayer, fasting, and purification.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Fiqh%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Seerah of Prophet ﷺ</h3>
-<p>Life and teachings of Prophet Muhammad ﷺ.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Seerah%20course">
-Enroll Now
-</a>
-</div>
-
-<div class="card">
-<h3>Tafseer (Quran Interpretation)</h3>
-<p>Deep understanding of Quran meanings and context.</p>
-<a class="btn" href="https://wa.me/923139271282?text=I%20want%20to%20enroll%20in%20Tafseer%20course">
-Enroll Now
-</a>
+<div class="teacher">
+<img src="teacher2.jpeg">
+<h3>Male Teacher</h3>
 </div>
 
 </div>
 
 </section>
-<a class="btn" href="https://wa.me/923139271282">
-Contact on WhatsApp
-</a>
 
-</section>
-
+<!-- CONTACT -->
 <section class="contact">
 
-<h2 style="color:gold;">Contact Us</h2>
-
-<p>📱 WhatsApp: +92 313 9271282</p>
-<p>📧 Email: ka1800441@gmail.com</p>
+<h2>Contact Us</h2>
+<p>WhatsApp: +92 313 9271282</p>
+<p>Email: ka1800441@gmail.com</p>
 
 </section>
 
+<!-- FOOTER -->
 <footer>
-© 2025 The Best Online Islamic Center
+© 2026 The Best Online Islamic Center
 </footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/923139271282" class="whatsapp">💬</a>
+
+<!-- TYPING + COUNTER SCRIPT -->
+<script>
+
+/* TYPING ANIMATION */
+const text = "Learn Quran Online";
+let i = 0;
+
+function typing(){
+document.getElementById("typing").innerHTML = text.slice(0,i);
+i++;
+if(i > text.length){
+i = 0;
+setTimeout(typing,1000);
+}else{
+setTimeout(typing,120);
+}
+}
+typing();
+
+/* COUNTERS ANIMATION */
+function animateCounter(id, target, speed){
+let count = 0;
+let el = document.getElementById(id);
+
+let interval = setInterval(() => {
+count++;
+el.innerText = count + "+";
+
+if(count >= target){
+clearInterval(interval);
+el.innerText = target + "+";
+}
+}, speed);
+}
+
+animateCounter("students", 120, 20);
+animateCounter("enrolled", 300, 10);
+animateCounter("sessions", 10, 200);
+
+</script>
 
 </body>
 </html>
