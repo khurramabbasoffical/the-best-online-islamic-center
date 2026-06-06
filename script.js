@@ -1,0 +1,1 @@
+const w=['Learn Quran Online','Learn Tajweed Online','Learn Islamic Studies Online'];let i=0;setInterval(()=>{document.getElementById('typing').textContent=w[i%w.length];i++;},1500);
