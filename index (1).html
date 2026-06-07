@@ -1,0 +1,864 @@
+bash
+
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best Online Islamic Center</title>
+    <meta name="description" content="Online Quran Classes with qualified male and female teachers. Learn Noorani Qaida, Tajweed, Hifz, Tafseer and Islamic Studies worldwide.">
+    <meta name="keywords" content="Online Quran Academy, Quran Classes, Tajweed, Hifz, Noorani Qaida, Islamic Studies">
+    <meta name="author" content="The Best Online Islamic Center">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold:       #D4AF37;
+            --gold-dark:  #AA7C11;
+            --gold-glow:  rgba(212,175,55,0.25);
+            --bg:         #030712;
+            --bg2:        #050b1a;
+            --card:       #0b1329;
+            --border:     rgba(212,175,55,0.15);
+            --text:       #f3f4f6;
+            --muted:      #9ca3af;
+            --green:      #25D366;
+            --radius:     18px;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
+        body { background:var(--bg); color:var(--text); overflow-x:hidden; }
+
+        /* ════════════════════════════
+           NAVBAR
+        ════════════════════════════ */
+        nav {
+            position:fixed; top:0; left:0; width:100%; z-index:999;
+            background:rgba(3,7,18,0.6);
+            backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border);
+            height:70px; padding:0 48px;
+            display:flex; align-items:center; justify-content:space-between;
+            transition:background .3s ease;
+        }
+        nav.scrolled { background:rgba(3,7,18,0.95); }
+
+        .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+        .nav-logo img { width:42px; height:42px; border-radius:50%; border:1.5px solid var(--gold); object-fit:cover; }
+        .nav-logo span { color:var(--gold); font-size:.9rem; font-weight:700; line-height:1.3; }
+
+        .nav-right { display:flex; align-items:center; gap:6px; }
+        .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
+        .nav-links a {
+            color:var(--muted); text-decoration:none; font-size:.87rem; font-weight:500;
+            padding:7px 13px; border-radius:8px; transition:all .25s;
+        }
+        .nav-links a:hover { color:var(--gold); background:rgba(212,175,55,.08); }
+
+        .nav-socials { display:flex; align-items:center; gap:8px; margin-left:10px; }
+        .nav-socials a {
+            width:34px; height:34px; border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:.95rem; text-decoration:none; transition:all .25s;
+            border:1px solid var(--border);
+        }
+        .nav-fb  { color:#1877F2; background:rgba(24,119,242,.08); }
+        .nav-ig  { color:#E1306C; background:rgba(225,48,108,.08); }
+        .nav-fb:hover  { background:rgba(24,119,242,.2); border-color:rgba(24,119,242,.4); transform:translateY(-2px); }
+        .nav-ig:hover  { background:rgba(225,48,108,.2); border-color:rgba(225,48,108,.4); transform:translateY(-2px); }
+
+        /* Hamburger */
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px; background:none; border:none; }
+        .hamburger span { display:block; width:24px; height:2px; background:var(--gold); border-radius:2px; transition:all .3s; }
+        .hamburger.active span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity:0; }
+        .hamburger.active span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display:none; position:fixed; top:70px; left:0; width:100%;
+            background:rgba(3,7,18,.97); border-bottom:1px solid var(--border);
+            padding:18px 26px; z-index:998; flex-direction:column; gap:4px;
+        }
+        .mobile-menu.open { display:flex; }
+        .mobile-menu a {
+            color:var(--muted); text-decoration:none; font-size:.97rem; font-weight:500;
+            padding:11px 14px; border-radius:8px; transition:all .25s;
+        }
+        .mobile-menu a:hover { color:var(--gold); background:rgba(212,175,55,.08); }
+        .mob-socials { display:flex; gap:10px; padding:10px 14px 4px; }
+        .mob-socials a {
+            width:38px; height:38px; border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1rem; text-decoration:none; border:1px solid var(--border);
+            transition:all .25s;
+        }
+
+        /* ════════════════════════════
+           HERO
+        ════════════════════════════ */
+        .hero {
+            min-height:100vh;
+            display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+            background:radial-gradient(ellipse 85% 65% at 50% 38%, #0d1f4e 0%, #030712 68%);
+            padding:130px 20px 80px; position:relative; overflow:hidden;
+        }
+        .hero::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:radial-gradient(circle,rgba(212,175,55,.1) 1px,transparent 1px),
+                             radial-gradient(circle,rgba(212,175,55,.05) 1px,transparent 1px);
+            background-size:60px 60px,30px 30px; background-position:0 0,15px 15px;
+        }
+
+        .hero-logo {
+            width:135px; height:135px; border-radius:50%; object-fit:cover;
+            border:2.5px solid var(--gold);
+            box-shadow:0 0 0 10px rgba(212,175,55,.07), 0 0 50px rgba(212,175,55,.22);
+            margin-bottom:30px; position:relative; z-index:1;
+            animation:floatLogo 4s ease-in-out infinite;
+        }
+        @keyframes floatLogo {
+            0%,100% { transform:translateY(0); box-shadow:0 0 0 10px rgba(212,175,55,.07),0 0 50px rgba(212,175,55,.22); }
+            50%      { transform:translateY(-10px); box-shadow:0 0 0 14px rgba(212,175,55,.04),0 0 70px rgba(212,175,55,.32); }
+        }
+
+        .hero h1 {
+            color:var(--gold); font-size:3rem; font-weight:800; letter-spacing:-1px;
+            margin-bottom:18px; z-index:1; position:relative;
+            text-shadow:0 0 60px rgba(212,175,55,.2);
+        }
+        .typing-wrap { min-height:52px; display:flex; align-items:center; justify-content:center; margin-bottom:22px; z-index:1; position:relative; }
+        .typing-text {
+            color:#fff; font-size:1.55rem; font-weight:600;
+            border-right:2.5px solid var(--gold); padding-right:5px;
+            animation:blink .75s step-end infinite;
+        }
+        @keyframes blink { 50% { border-color:transparent; } }
+
+        .hero-desc { color:var(--muted); font-size:1.05rem; max-width:580px; line-height:1.75; margin-bottom:36px; z-index:1; position:relative; }
+
+        .btn-cta {
+            display:inline-flex; align-items:center; gap:10px;
+            background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+            color:#000; padding:16px 38px; text-decoration:none; border-radius:50px;
+            font-weight:700; font-size:1rem; letter-spacing:.3px;
+            animation:ctaPulse 2.5s ease-out infinite;
+            transition:transform .3s, box-shadow .3s; z-index:1; position:relative;
+        }
+        .btn-cta:hover { transform:translateY(-4px); box-shadow:0 14px 38px rgba(212,175,55,.5); animation:none; }
+        @keyframes ctaPulse {
+            0%   { box-shadow:0 0 0 0 rgba(212,175,55,.5); }
+            70%  { box-shadow:0 0 0 18px rgba(212,175,55,0); }
+            100% { box-shadow:0 0 0 0 rgba(212,175,55,0); }
+        }
+
+        /* ════════════════════════════
+           FREE TRIAL BANNER
+        ════════════════════════════ */
+        .trial-banner {
+            background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(212,175,55,.06));
+            border-top:1px solid rgba(212,175,55,.2); border-bottom:1px solid rgba(212,175,55,.2);
+            padding:16px 20px; text-align:center;
+        }
+        .trial-banner p { font-size:.95rem; font-weight:600; color:var(--gold); }
+        .trial-banner p span { color:#fff; }
+
+        /* ════════════════════════════
+           SHARED SECTION STYLES
+        ════════════════════════════ */
+        .section-wrap { padding:100px 20px; }
+        .section-label {
+            display:inline-block; background:rgba(212,175,55,.1); color:var(--gold);
+            font-size:.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+            padding:6px 18px; border-radius:50px; border:1px solid rgba(212,175,55,.2); margin-bottom:14px;
+        }
+        .section-title { font-size:2.2rem; font-weight:800; letter-spacing:-.5px; margin-bottom:10px; color:var(--gold); }
+        .section-sub { color:var(--muted); font-size:1rem; max-width:540px; margin:0 auto 55px; line-height:1.7; }
+        .center { text-align:center; }
+
+        /* ════════════════════════════
+           STATS
+        ════════════════════════════ */
+        .stats-section { background:var(--bg2); padding:80px 20px; }
+        .stats-grid { display:flex; justify-content:center; gap:26px; flex-wrap:wrap; max-width:900px; margin:0 auto; }
+        .stat-card {
+            background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            padding:38px 52px; min-width:200px; text-align:center;
+            transition:all .35s; position:relative; overflow:hidden;
+        }
+        .stat-card::after {
+            content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+            width:60%; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent);
+        }
+        .stat-card:hover { border-color:rgba(212,175,55,.4); transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+        .stat-num { display:block; color:var(--gold); font-size:3rem; font-weight:800; margin-bottom:6px; }
+        .stat-card p { color:var(--muted); font-size:.9rem; font-weight:500; }
+
+        /* ════════════════════════════
+           ABOUT US
+        ════════════════════════════ */
+        .about-section { background:var(--bg); padding:100px 20px; }
+        .about-grid {
+            display:grid; grid-template-columns:1fr 1fr; gap:60px;
+            max-width:1100px; margin:0 auto; align-items:center;
+        }
+        .about-visual {
+            position:relative; display:flex; align-items:center; justify-content:center;
+        }
+        /* Islamic geometric pattern */
+        .geo-wrap {
+            width:340px; height:340px; border-radius:24px;
+            background:var(--card); border:1px solid var(--border);
+            display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+        }
+        .geo-wrap::before {
+            content:''; position:absolute; inset:0;
+            background-image:
+                repeating-linear-gradient(0deg,rgba(212,175,55,.07) 0px,rgba(212,175,55,.07) 1px,transparent 1px,transparent 40px),
+                repeating-linear-gradient(90deg,rgba(212,175,55,.07) 0px,rgba(212,175,55,.07) 1px,transparent 1px,transparent 40px),
+                repeating-linear-gradient(45deg,rgba(212,175,55,.04) 0px,rgba(212,175,55,.04) 1px,transparent 1px,transparent 28px),
+                repeating-linear-gradient(-45deg,rgba(212,175,55,.04) 0px,rgba(212,175,55,.04) 1px,transparent 1px,transparent 28px);
+        }
+        .geo-icon { font-size:5rem; color:var(--gold); opacity:.7; position:relative; z-index:1; }
+        .geo-ring {
+            position:absolute; border-radius:50%;
+            border:1px solid rgba(212,175,55,.2);
+        }
+        .geo-ring:nth-child(1) { width:200px; height:200px; animation:spinR 18s linear infinite; }
+        .geo-ring:nth-child(2) { width:280px; height:280px; border-style:dashed; animation:spinR 26s linear infinite reverse; }
+
+        @keyframes spinR { to { transform:rotate(360deg); } }
+
+        .about-text h2 { font-size:2rem; font-weight:800; color:var(--gold); margin-bottom:20px; letter-spacing:-.5px; }
+        .about-text p { color:var(--muted); font-size:.97rem; line-height:1.85; margin-bottom:16px; }
+        .about-badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+        .badge {
+            display:inline-flex; align-items:center; gap:7px;
+            background:rgba(212,175,55,.08); border:1px solid rgba(212,175,55,.2);
+            color:var(--gold); padding:7px 16px; border-radius:50px; font-size:.82rem; font-weight:600;
+        }
+
+        /* ════════════════════════════
+           WHY CHOOSE US
+        ════════════════════════════ */
+        .why-section { background:var(--bg2); padding:100px 20px; text-align:center; }
+        .why-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+            gap:24px; max-width:1100px; margin:0 auto;
+        }
+        .why-card {
+            background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            padding:34px 26px; text-align:left; position:relative; overflow:hidden;
+            transition:all .35s;
+        }
+        .why-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:2px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent);
+            opacity:0; transition:opacity .35s;
+        }
+        .why-card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,.35); box-shadow:0 22px 55px rgba(0,0,0,.5); }
+        .why-card:hover::before { opacity:1; }
+        .why-icon {
+            width:52px; height:52px; border-radius:13px;
+            background:rgba(212,175,55,.1); border:1px solid rgba(212,175,55,.2);
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.4rem; color:var(--gold); margin-bottom:18px;
+        }
+        .why-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:8px; color:var(--text); }
+        .why-card p  { color:var(--muted); font-size:.87rem; line-height:1.65; }
+
+        /* ════════════════════════════
+           COURSES
+        ════════════════════════════ */
+        .courses-section { background:var(--bg); padding:100px 20px; text-align:center; }
+        .course-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+            gap:26px; max-width:1200px; margin:0 auto;
+        }
+        .course-card {
+            background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            overflow:hidden; display:flex; flex-direction:column; transition:all .4s;
+        }
+        .course-card:hover { transform:translateY(-10px); border-color:rgba(212,175,55,.4); box-shadow:0 28px 65px rgba(0,0,0,.6); }
+        .course-img { overflow:hidden; height:200px; }
+        .course-img img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+        .course-card:hover .course-img img { transform:scale(1.07); }
+        .course-body { padding:22px 22px 26px; display:flex; flex-direction:column; flex:1; text-align:left; }
+        .course-body h3 { color:var(--gold); font-size:1.15rem; font-weight:700; margin-bottom:8px; }
+        .course-body p  { color:var(--muted); font-size:.88rem; line-height:1.65; flex:1; margin-bottom:20px; }
+        .btn-enroll {
+            display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+            padding:11px 22px; background:var(--green); color:#fff; border-radius:10px;
+            text-decoration:none; font-weight:600; font-size:.88rem;
+            transition:all .3s; box-shadow:0 4px 14px rgba(37,211,102,.2);
+        }
+        .btn-enroll:hover { background:#1ebe57; transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,211,102,.38); }
+
+        /* ════════════════════════════
+           FEE STRUCTURE
+        ════════════════════════════ */
+        .fees-section { background:var(--bg2); padding:100px 20px; text-align:center; }
+        .fee-grid {
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+            gap:26px; max-width:1050px; margin:0 auto;
+        }
+        .fee-card {
+            background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            padding:38px 28px; text-align:center; position:relative; overflow:hidden;
+            transition:all .35s;
+        }
+        .fee-card.popular { border-color:rgba(212,175,55,.5); }
+        .fee-card.popular::before {
+            content:'Most Popular'; position:absolute; top:16px; right:-28px;
+            background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+            color:#000; font-size:.72rem; font-weight:700; padding:4px 36px;
+            transform:rotate(45deg); letter-spacing:.5px;
+        }
+        .fee-card:hover { transform:translateY(-8px); border-color:rgba(212,175,55,.4); box-shadow:0 22px 55px rgba(0,0,0,.5); }
+        .fee-plan { color:var(--gold); font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+        .fee-price { font-size:2.8rem; font-weight:800; color:var(--text); margin-bottom:4px; }
+        .fee-price span { font-size:1rem; font-weight:500; color:var(--muted); }
+        .fee-days { color:var(--muted); font-size:.88rem; margin-bottom:24px; }
+        .fee-features { list-style:none; margin-bottom:28px; display:flex; flex-direction:column; gap:10px; }
+        .fee-features li { color:var(--muted); font-size:.88rem; display:flex; align-items:center; gap:8px; justify-content:center; }
+        .fee-features li i { color:var(--gold); font-size:.75rem; }
+        .btn-fee {
+            display:inline-flex; align-items:center; justify-content:center; gap:8px;
+            width:100%; padding:12px; background:transparent;
+            border:1.5px solid var(--gold); color:var(--gold);
+            border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;
+            transition:all .3s;
+        }
+        .btn-fee:hover, .fee-card.popular .btn-fee {
+            background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+            color:#000; border-color:transparent; box-shadow:0 6px 22px rgba(212,175,55,.3);
+        }
+
+        /* ════════════════════════════
+           TEACHERS
+        ════════════════════════════ */
+        .teachers-section { background:var(--bg); padding:100px 20px; text-align:center; }
+        .teacher-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px; max-width:700px; margin:0 auto 44px; }
+        .teacher-card {
+            background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+            padding:38px 24px 30px; text-align:center; transition:all .35s;
+        }
+        .teacher-card:hover { border-color:var(--gold); transform:translateY(-6px); box-shadow:0 22px 55px rgba(0,0,0,.5); }
+        .avatar-wrap { position:relative; width:140px; height:140px; margin:0 auto 20px; }
+        .avatar-wrap img { width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 0 0 6px rgba(212,175,55,.1),0 10px 30px rgba(0,0,0,.4); position:relative; z-index:1; }
+        .avatar-wrap::before { content:''; position:absolute; inset:-7px; border-radius:50%; border:2px dashed rgba(212,175,55,.35); animation:spinR 12s linear infinite; }
+        .teacher-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:6px; }
+        .teacher-card p  { color:var(--muted); font-size:.87rem; }
+        .btn-appt {
+            display:inline-flex; align-items:center; gap:8px;
+            border:2px solid var(--green); color:var(--green);
+            padding:13px 34px; border-radius:50px; text-decoration:none;
+            font-weight:600; font-size:.93rem; transition:all .3s;
+        }
+        .btn-appt:hover { background:var(--green); color:#fff; box-shadow:0 6px 22px rgba(37,211,102,.3); }
+
+        /* ════════════════════════════
+           FAQ ACCORDION
+        ════════════════════════════ */
+        .faq-section { background:var(--bg2); padding:100px 20px; text-align:center; }
+        .faq-list { max-width:750px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+        .faq-item { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:border-color .3s; }
+        .faq-item.open { border-color:rgba(212,175,55,.4); }
+        .faq-q {
+            display:flex; align-items:center; justify-content:space-between;
+            padding:20px 24px; cursor:pointer; font-weight:600; font-size:.97rem;
+            transition:color .25s; user-select:none;
+        }
+        .faq-q:hover { color:var(--gold); }
+        .faq-q i { color:var(--gold); font-size:.85rem; transition:transform .3s; flex-shrink:0; margin-left:12px; }
+        .faq-item.open .faq-q i { transform:rotate(180deg); }
+        .faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+        .faq-item.open .faq-a { max-height:200px; }
+        .faq-a p { padding:0 24px 20px; color:var(--muted); font-size:.92rem; line-height:1.7; }
+
+        /* ════════════════════════════
+           CONTACT
+        ════════════════════════════ */
+        .contact-section { background:var(--bg); padding:90px 20px; text-align:center; }
+        .contact-pills { display:flex; justify-content:center; flex-wrap:wrap; gap:16px; margin-top:30px; }
+        .contact-pill {
+            display:inline-flex; align-items:center; gap:10px;
+            background:var(--card); border:1px solid var(--border);
+            padding:14px 28px; border-radius:50px; text-decoration:none;
+            color:var(--text); font-weight:500; font-size:.93rem; transition:all .3s;
+        }
+        .contact-pill i { color:var(--gold); }
+        .contact-pill:hover { border-color:var(--gold); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.4); }
+
+        /* ════════════════════════════
+           FOOTER
+        ════════════════════════════ */
+        footer {
+            background:#020509; border-top:1px solid rgba(255,255,255,.04);
+            padding:36px 20px; text-align:center;
+        }
+        .footer-social { display:flex; justify-content:center; gap:12px; margin-bottom:20px; }
+        .footer-social a {
+            width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+            font-size:1rem; text-decoration:none; border:1px solid var(--border); transition:all .25s;
+        }
+        .footer-social .fs-fb  { color:#1877F2; } .footer-social .fs-fb:hover  { background:rgba(24,119,242,.15); border-color:rgba(24,119,242,.4); }
+        .footer-social .fs-ig  { color:#E1306C; } .footer-social .fs-ig:hover  { background:rgba(225,48,108,.15); border-color:rgba(225,48,108,.4); }
+        .footer-social .fs-wa  { color:var(--green); } .footer-social .fs-wa:hover  { background:rgba(37,211,102,.15); border-color:rgba(37,211,102,.4); }
+        .footer-social .fs-em  { color:var(--gold); }  .footer-social .fs-em:hover  { background:rgba(212,175,55,.15); border-color:rgba(212,175,55,.4); }
+        footer p { color:#4b5563; font-size:.83rem; }
+        footer span { color:var(--gold); }
+
+        /* ════════════════════════════
+           FLOATING BUTTONS
+        ════════════════════════════ */
+        .float-btn {
+            position:fixed; width:56px; height:56px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:23px; text-decoration:none; z-index:1000; transition:transform .3s;
+        }
+        .float-btn:hover { transform:scale(1.12); }
+        .float-wa   { bottom:28px; right:28px; background:var(--green); color:#fff;  animation:hbeat 2s ease-in-out infinite; }
+        .float-mail { bottom:28px; left:28px;  background:var(--gold);  color:#000; animation:hbeat 2s ease-in-out infinite .5s; }
+        @keyframes hbeat {
+            0%,100% { box-shadow:0 0 0 0 rgba(37,211,102,.5); }
+            40%      { box-shadow:0 0 0 13px rgba(37,211,102,.12); }
+            80%      { box-shadow:0 0 0 6px rgba(37,211,102,.04); }
+        }
+
+        /* ════════════════════════════
+           RESPONSIVE
+        ════════════════════════════ */
+        @media(max-width:900px) {
+            .about-grid { grid-template-columns:1fr; }
+            .geo-wrap { width:280px; height:280px; margin:0 auto; }
+        }
+        @media(max-width:768px) {
+            nav { padding:0 18px; }
+            .nav-right { display:none; }
+            .hamburger { display:flex; }
+            .hero h1 { font-size:1.9rem; }
+            .typing-text { font-size:1.15rem; }
+            .section-title { font-size:1.75rem; }
+            .stat-card { min-width:140px; padding:28px 30px; }
+            .fee-grid  { grid-template-columns:1fr 1fr; }
+        }
+        @media(max-width:500px) {
+            .fee-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+    <a href="#hero" class="nav-logo">
+        <img src="logo.jpg" alt="Logo">
+        <span>Best Online<br>Islamic Center</span>
+    </a>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#fees">Fees</a></li>
+            <li><a href="#admission">Admission</a></li>
+        </ul>
+        <div class="nav-socials">
+            <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="nav-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="nav-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#hero"      onclick="closeMob()">Home</a>
+    <a href="#about"     onclick="closeMob()">About</a>
+    <a href="#courses"   onclick="closeMob()">Courses</a>
+    <a href="#fees"      onclick="closeMob()">Fees</a>
+    <a href="#admission" onclick="closeMob()">Admission</a>
+    <div class="mob-socials">
+        <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="nav-fb"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="nav-ig"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+    <img src="logo.jpg" class="hero-logo" alt="Logo">
+    <h1>The Best Online Islamic Center</h1>
+    <div class="typing-wrap"><span class="typing-text" id="typing"></span></div>
+    <p class="hero-desc">Learn Quran, Tajweed, Hifz, Tafseer and Islamic Studies from expert certified teachers — anywhere in the world.</p>
+    <a href="https://wa.me/923139271282" class="btn-cta"><i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp</a>
+</section>
+
+<!-- ══ FREE TRIAL BANNER ══ -->
+<div class="trial-banner">
+    <p>🎁 <span>3-Day Free Trial</span> — No Registration Fee &nbsp;|&nbsp; No Credit Card Required &nbsp;|&nbsp; Start Today!</p>
+</div>
+
+<!-- ══ STATS ══ -->
+<section class="stats-section" id="stats">
+    <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num" data-target="120">0</span><p>Active Students</p></div>
+        <div class="stat-card"><span class="stat-num" data-target="300">0</span><p>Enrolled Students</p></div>
+        <div class="stat-card"><span class="stat-num" data-target="10">0</span><p>Expert Teachers</p></div>
+    </div>
+</section>
+
+<!-- ══ ABOUT US ══ -->
+<section class="about-section" id="about">
+    <div class="about-grid">
+        <div class="about-visual">
+            <div class="geo-wrap">
+                <div class="geo-ring"></div>
+                <div class="geo-ring"></div>
+                <span class="geo-icon"><i class="fa-solid fa-mosque"></i></span>
+            </div>
+        </div>
+        <div class="about-text">
+            <span class="section-label">Who We Are</span>
+            <h2>About Our Academy</h2>
+            <p>Our Academy is a premier online platform offering interactive live courses designed to help you learn the Quran, Islamic Studies, and the Arabic language from the comfort and convenience of your home.</p>
+            <p>Our teachers possess several years of experience teaching Arabic and the Quran, specializing in guiding non-Arabic speakers. Holding valuable degrees and certifications, our faculty is truly our greatest asset.</p>
+            <div class="about-badges">
+                <span class="badge"><i class="fa-solid fa-check"></i> Certified Teachers</span>
+                <span class="badge"><i class="fa-solid fa-check"></i> Male & Female Tutors</span>
+                <span class="badge"><i class="fa-solid fa-check"></i> Live 1-on-1 Classes</span>
+                <span class="badge"><i class="fa-solid fa-check"></i> All Age Groups</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ WHY CHOOSE US ══ -->
+<section class="why-section" id="why">
+    <span class="section-label">Our Promise</span>
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p class="section-sub">Trusted by 300+ families worldwide — here's what makes us different.</p>
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <h3>Experienced Professionals</h3>
+            <p>All teachers are certified Hafiz with years of experience in Quran and Islamic education.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-laptop"></i></div>
+            <h3>Best Online Classes for Adults</h3>
+            <p>Structured adult-friendly programs designed for busy schedules and different learning paces.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-female"></i></div>
+            <h3>Best Classes System for Females</h3>
+            <p>Dedicated female teachers for sisters — ensuring a comfortable, private, and focused environment.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-child"></i></div>
+            <h3>Best Handling for Kids</h3>
+            <p>Patient, encouraging teachers who know exactly how to engage and inspire young learners.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
+            <h3>Very Affordable Fee</h3>
+            <p>Premium quality education at the most competitive and family-friendly prices available online.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-certificate"></i></div>
+            <h3>Completion Certificates</h3>
+            <p>Official certificates awarded upon successful completion of each course for your achievement.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Various Learning Materials</h3>
+            <p>Access to digital resources, worksheets, and study materials provided to every student free.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
+            <h3>24/7 Availability</h3>
+            <p>Choose any time that suits your timezone — morning, evening, or weekend, we are always here.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ COURSES ══ -->
+<section class="courses-section" id="courses">
+    <span class="section-label">What We Teach</span>
+    <h2 class="section-title">Our Courses</h2>
+    <p class="section-sub">From complete beginners to advanced Hifz — a course for every level and age.</p>
+    <div class="course-grid">
+        <div class="course-card">
+            <div class="course-img"><img src="noorani.jpeg" alt="Noorani Qaida"></div>
+            <div class="course-body"><h3>Noorani Qaida</h3><p>Learn Arabic letters, pronunciation and basic Quran reading from scratch.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Noorani%20Qaida."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="nazra.jpeg" alt="Nazra Quran"></div>
+            <div class="course-body"><h3>Nazra Quran</h3><p>Read the Holy Quran fluently with proper guidance and expert corrections.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Nazra%20Quran."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="tajweed.jpeg" alt="Tajweed"></div>
+            <div class="course-body"><h3>Tajweed Rules</h3><p>Master proper pronunciation and recitation rules of the Holy Quran perfectly.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Tajweed%20Rules."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="hifz.jpeg" alt="Hifz"></div>
+            <div class="course-body"><h3>Hifz Program</h3><p>Structured Quran memorization program with dedicated expert teacher guidance.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Hifz%20Program."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="hadith.jpeg" alt="Hadith"></div>
+            <div class="course-body"><h3>Hadith Studies</h3><p>Study authentic sayings and teachings of Prophet Muhammad ﷺ in depth.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Hadith%20Studies."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="aqeedah.jpeg" alt="Aqeedah"></div>
+            <div class="course-body"><h3>Aqeedah</h3><p>Learn the correct foundations of Islamic faith, belief and creed clearly.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Aqeedah."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="fiqh.jpeg" alt="Fiqh"></div>
+            <div class="course-body"><h3>Fiqh</h3><p>Understand Islamic rulings and the correct way to perform daily worship.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Fiqh."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="seerah.jpg" alt="Seerah"></div>
+            <div class="course-body"><h3>Seerah</h3><p>Explore the beautiful life, character and legacy of Prophet Muhammad ﷺ.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Seerah."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+        <div class="course-card">
+            <div class="course-img"><img src="tafseer.jpeg" alt="Tafseer"></div>
+            <div class="course-body"><h3>Tafseer</h3><p>Understand the deep meanings, context and lessons of the Holy Quran.</p><a class="btn-enroll" href="https://wa.me/923139271282?text=Assalamualaikum%20I%20would%20like%20to%20enroll%20in%20Tafseer."><i class="fa-brands fa-whatsapp"></i> Enroll Now</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FEE STRUCTURE ══ -->
+<section class="fees-section" id="fees">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-title">Fee Structure</h2>
+    <p class="section-sub">Transparent, affordable pricing — no hidden charges. All plans include a 3-day free trial.</p>
+    <div class="fee-grid">
+        <div class="fee-card">
+            <p class="fee-plan">Starter</p>
+            <p class="fee-price">$30<span>/month</span></p>
+            <p class="fee-days">2 Days / Week</p>
+            <ul class="fee-features">
+                <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+                <li><i class="fa-solid fa-check"></i> Certified Teacher</li>
+                <li><i class="fa-solid fa-check"></i> Learning Materials</li>
+                <li><i class="fa-solid fa-check"></i> 3-Day Free Trial</li>
+            </ul>
+            <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20the%20Starter%20Plan%20%2430%2Fmonth." class="btn-fee"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+        </div>
+        <div class="fee-card popular">
+            <p class="fee-plan">Standard</p>
+            <p class="fee-price">$40<span>/month</span></p>
+            <p class="fee-days">3 Days / Week</p>
+            <ul class="fee-features">
+                <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+                <li><i class="fa-solid fa-check"></i> Certified Teacher</li>
+                <li><i class="fa-solid fa-check"></i> Learning Materials</li>
+                <li><i class="fa-solid fa-check"></i> Progress Reports</li>
+            </ul>
+            <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20the%20Standard%20Plan%20%2440%2Fmonth." class="btn-fee"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+        </div>
+        <div class="fee-card">
+            <p class="fee-plan">Advanced</p>
+            <p class="fee-price">$50<span>/month</span></p>
+            <p class="fee-days">4 Days / Week</p>
+            <ul class="fee-features">
+                <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+                <li><i class="fa-solid fa-check"></i> Certified Teacher</li>
+                <li><i class="fa-solid fa-check"></i> Learning Materials</li>
+                <li><i class="fa-solid fa-check"></i> Completion Certificate</li>
+            </ul>
+            <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20the%20Advanced%20Plan%20%2450%2Fmonth." class="btn-fee"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+        </div>
+        <div class="fee-card">
+            <p class="fee-plan">Intensive</p>
+            <p class="fee-price">$75<span>/month</span></p>
+            <p class="fee-days">5 Days / Week</p>
+            <ul class="fee-features">
+                <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+                <li><i class="fa-solid fa-check"></i> Senior Teacher</li>
+                <li><i class="fa-solid fa-check"></i> All Materials Included</li>
+                <li><i class="fa-solid fa-check"></i> Priority Support</li>
+            </ul>
+            <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20the%20Intensive%20Plan%20%2475%2Fmonth." class="btn-fee"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══ ADMISSION FORM ══ -->
+<section class="section-wrap" id="admission" style="background:var(--bg);text-align:center;">
+    <span class="section-label">Get Started</span>
+    <h2 class="section-title">Admission Form</h2>
+    <p class="section-sub">Fill the form and we will contact you on WhatsApp within minutes.</p>
+    <form id="admissionForm" style="max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
+        <input type="text"   id="name"   placeholder="Student Name"    required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <input type="text"   id="parent" placeholder="Parent Name"     required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <input type="number" id="age"    placeholder="Age"             required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <select id="gender" required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;appearance:none;">
+            <option value="">Select Gender</option><option>Male</option><option>Female</option>
+        </select>
+        <input type="text" id="country" placeholder="Country" required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <input type="text" id="wanum"   placeholder="WhatsApp Number"  required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <select id="course" required style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;appearance:none;">
+            <option value="">Select Course</option>
+            <option>Noorani Qaida</option><option>Nazra Quran</option><option>Tajweed Rules</option>
+            <option>Hifz Program</option><option>Hadith Studies</option><option>Aqeedah</option>
+            <option>Fiqh</option><option>Seerah</option><option>Tafseer</option>
+        </select>
+        <input type="text" id="time" placeholder="Preferred Class Time (e.g. 6pm PKT)" style="padding:15px 18px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:#fff;font-size:.95rem;width:100%;transition:all .3s;outline:none;">
+        <button type="submit" style="align-self:center;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#000;padding:15px 44px;border-radius:50px;font-weight:700;font-size:1rem;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(212,175,55,.3);transition:all .35s;">
+            <i class="fa-brands fa-whatsapp"></i> Submit Admission
+        </button>
+    </form>
+</section>
+
+<!-- ══ TEACHERS ══ -->
+<section class="teachers-section" id="teachers">
+    <span class="section-label">Our Team</span>
+    <h2 class="section-title">Our Teachers</h2>
+    <p class="section-sub">Qualified, certified and experienced Quran tutors for every student.</p>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar-wrap"><img src="teacher1.jpeg" alt="Female Teacher"></div>
+            <h3>Female Teacher</h3><p>Certified Tajweed & Hifz Tutor</p>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar-wrap"><img src="teacher2.jpeg" alt="Male Teacher"></div>
+            <h3>Male Teacher</h3><p>Certified Tajweed & Hifz Tutor</p>
+        </div>
+    </div>
+    <a href="https://wa.me/923139271282" class="btn-appt"><i class="fa-brands fa-whatsapp"></i> Make Appointment</a>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section" id="faq">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Everything parents and students ask before joining us.</p>
+    <div class="faq-list">
+        <div class="faq-item">
+            <div class="faq-q">Do you offer a free trial? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><p>Yes! We offer a completely free 3-day trial with no registration fee and no credit card required. Simply contact us on WhatsApp to get started immediately.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Are teachers male and female separate? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><p>Absolutely. We have dedicated male teachers for brothers and dedicated female teachers for sisters. You can choose your preferred teacher when enrolling.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What platform is used for online classes? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><p>All live classes are conducted via Zoom or Skype — whichever you prefer. Both platforms are free to use and work on mobile, tablet, and computer.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What age groups do you teach? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><p>We teach all age groups — from young children (5 years+) to adults of any age. Our teachers are trained to adapt their teaching style to every age group effectively.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">How do I pay the monthly fee? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><p>Fees are paid monthly via bank transfer, Easypaisa, JazzCash, or international payment methods. Our team will guide you through the payment process on WhatsApp.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section" id="contact">
+    <span class="section-label">Reach Out</span>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub" style="margin-bottom:0">We are available 24/7 — reach us anytime on WhatsApp or Email.</p>
+    <div class="contact-pills">
+        <a href="https://wa.me/923139271282" class="contact-pill"><i class="fa-brands fa-whatsapp"></i> +92 313 9271282</a>
+        <a href="mailto:ka1800441@gmail.com"  class="contact-pill"><i class="fa-solid fa-envelope"></i> ka1800441@gmail.com</a>
+        <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="contact-pill"><i class="fa-brands fa-facebook-f" style="color:#1877F2"></i> Facebook</a>
+        <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="contact-pill"><i class="fa-brands fa-instagram" style="color:#E1306C"></i> Instagram</a>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="footer-social">
+        <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="fs-fb"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="fs-ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/923139271282" class="fs-wa"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:ka1800441@gmail.com" class="fs-em"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2026 <span>The Best Online Islamic Center</span> — All Rights Reserved</p>
+</footer>
+
+<!-- Floating Buttons -->
+<a href="mailto:ka1800441@gmail.com" class="float-btn float-mail" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
+<a href="https://wa.me/923139271282"  class="float-btn float-wa"  title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+/* ── TYPING EFFECT ── */
+const phrases = ["Learn Quran Online","Master Tajweed Rules","1-on-1 Classes for Kids & Adults"];
+let pi = 0;
+const tel = document.getElementById('typing');
+function typeIt() {
+    const c = phrases[pi].split('');
+    (function t(){ if(c.length){ tel.textContent+=c.shift(); setTimeout(t,95); } else setTimeout(delIt,2200); })();
+}
+function delIt() {
+    (function d(){ if(tel.textContent.length){ tel.textContent=tel.textContent.slice(0,-1); setTimeout(d,45); }
+    else { pi=(pi+1)%phrases.length; setTimeout(typeIt,450); } })();
+}
+document.addEventListener('DOMContentLoaded', typeIt);
+
+/* ── NAVBAR SCROLL ── */
+window.addEventListener('scroll',()=> document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+
+/* ── HAMBURGER ── */
+const ham=document.getElementById('hamburger'), mob=document.getElementById('mobileMenu');
+ham.addEventListener('click',()=>{ ham.classList.toggle('active'); mob.classList.toggle('open'); });
+function closeMob(){ ham.classList.remove('active'); mob.classList.remove('open'); }
+document.addEventListener('click',e=>{ if(!ham.contains(e.target)&&!mob.contains(e.target)) closeMob(); });
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{ const t=document.querySelector(a.getAttribute('href')); if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});} });
+});
+
+/* ── SCROLL COUNTERS ── */
+let counted=false;
+window.addEventListener('scroll',()=>{
+    if(counted) return;
+    const s=document.getElementById('stats');
+    if(s && s.getBoundingClientRect().top < window.innerHeight-80){
+        counted=true;
+        document.querySelectorAll('.stat-num').forEach(el=>{
+            const target=+el.dataset.target; let n=0;
+            const step=Math.ceil(target/60);
+            const iv=setInterval(()=>{ n=Math.min(n+step,target); el.textContent=n+'+'; if(n>=target) clearInterval(iv); },28);
+        });
+    }
+});
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+        const item=q.parentElement;
+        const wasOpen=item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+        if(!wasOpen) item.classList.add('open');
+    });
+});
+
+/* ── FORM FOCUS GLOW ── */
+document.querySelectorAll('#admissionForm input, #admissionForm select').forEach(el=>{
+    el.addEventListener('focus',()=>{ el.style.borderColor='var(--gold)'; el.style.boxShadow='0 0 0 3px rgba(212,175,55,.15)'; });
+    el.addEventListener('blur', ()=>{ el.style.borderColor=''; el.style.boxShadow=''; });
+});
+
+/* ── ADMISSION FORM → WHATSAPP ── */
+document.getElementById('admissionForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const msg=`New Admission Request\n\nStudent Name: ${document.getElementById('name').value}\nParent Name: ${document.getElementById('parent').value}\nAge: ${document.getElementById('age').value}\nGender: ${document.getElementById('gender').value}\nCountry: ${document.getElementById('country').value}\nWhatsApp: ${document.getElementById('wanum').value}\nCourse: ${document.getElementById('course').value}\nPreferred Time: ${document.getElementById('time').value}`;
+    window.open(`https://wa.me/923139271282?text=${encodeURIComponent(msg)}`,'_blank');
+});
+</script>
+</body>
+</html>
+
