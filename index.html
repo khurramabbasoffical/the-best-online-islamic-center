@@ -13,297 +13,387 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        /* GOOGLE FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
         *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif; /* Premium Modern Font */
         }
 
         body{
-            background:#050816;
-            color:white;
+            background: #030712; /* Deep Premium Dark */
+            color: #f3f4f6;
             overflow-x: hidden;
         }
 
-        /* HERO */
+        /* HERO SECTION */
         .hero{
-            min-height:100vh;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            background:linear-gradient(135deg,#000,#001f5c,#0f172a);
-            padding:20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #0b1536 0%, #030712 100%); /* Smooth Radial Gradient */
+            padding: 40px 20px;
+            position: relative;
         }
 
         .logo{
-            width:110px;
-            height:110px;
-            object-fit:cover;
-            border-radius:50%;
-            border:3px solid #D4AF37;
-            box-shadow:0 0 15px rgba(212,175,55,0.4);
-            margin-bottom:15px;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25); /* Premium Glow */
+            margin-bottom: 25px;
         }
 
         h1{
-            color:#D4AF37;
-            font-size:2.5rem;
-            margin-bottom:10px;
+            color: #D4AF37;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
         }
 
         #typing{
-            color:white;
-            font-size:1.5rem;
-            min-height:40px;
-            margin-bottom:10px;
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 500;
+            min-height: 40px;
+            margin-bottom: 20px;
         }
 
-        /* BUTTON */
+        .hero p {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* PREMIUM MAIN BUTTON */
         .btn{
-            display:inline-flex;
-            align-items:center;
-            gap:8px;
-            background:#D4AF37;
-            color:black;
-            padding:14px 28px;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:bold;
-            transition:0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); /* Gold Gradient */
+            color: #000;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .btn:hover{
-            transform:scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
         }
 
-        /* COUNTERS */
-        .stats{
-            padding:70px 20px;
-            text-align:center;
-            background:#000b1f;
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            flex-wrap:wrap;
+        /* GLOBAL HEADING STYLE */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
         }
 
-        .stat-box{
-            padding:30px 50px;
-            border:1px solid #D4AF37;
-            border-radius:12px;
-            background:#111;
-            min-width:180px;
-            box-shadow:0 0 15px rgba(212,175,55,0.2);
-        }
-
-        .stat-box h2{
-            color:#D4AF37;
-            font-size:40px;
-            margin-bottom:5px;
-        }
-
-        /* COURSES */
+        /* COURSES SECTION */
         .courses{
-            padding:70px 20px;
-            text-align:center;
-            background:#001a33;
+            padding: 100px 20px;
+            text-align: center;
+            background: #050b1a;
             width: 100%;
         }
 
         .course-box{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-            max-width:1100px;
-            margin:auto;
-            margin-top:30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
         }
 
-        /* PICTURE OVERFLOW FIX: padding remove kr k border-radius ko tight kiya hy */
+        /* MODERN COURSE CARD (OVERFLOW FIX FIXED) */
         .card{
-            background:#111;
-            border:1px solid #D4AF37;
-            border-radius:12px;
-            transition:0.3s;
-            overflow: hidden !important; /* Picture ko bahar nikalny sy rokta hy */
+            background: #0b1329;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            overflow: hidden !important; /* Kisi bhi soorat pic bahar ni jaye gi */
             display: flex;
             flex-direction: column;
-            padding: 0 0 20px 0; /* Padding nechy rakhi hy ta ke pic full touch rahy */
+            padding: 0 0 25px 0;
+            text-align: left; /* Professional Left alignment */
         }
 
         .card:hover{
-            transform:translateY(-10px);
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 15px 35px rgba(5, 8, 22, 0.8), 0 0 25px rgba(212, 175, 55, 0.1);
         }
 
-        /* IMAGE STYLE FIXED */
         .card img {
             width: 100% !important;
-            height: 200px !important;
+            height: 210px !important;
             object-fit: cover !important;
             display: block !important;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.03); /* Subtle image effect on hover */
         }
 
         .card h3 {
             color: #D4AF37;
-            padding: 0 15px;
-            margin-bottom: 8px;
+            padding: 0 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .card p {
-            padding: 0 15px;
-            font-size: 14px;
+            color: #9ca3af;
+            padding: 0 20px;
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-grow: 1;
         }
 
+        /* MODERN ENROLL BUTTON */
         .enroll{
-            display:inline-flex;
-            align-items:center;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            gap:6px;
-            margin: 0 auto;
-            padding:10px 18px;
-            background:#25D366;
-            color:white;
-            border-radius:6px;
-            text-decoration:none;
-            font-weight:bold;
-            width: fit-content;
+            gap: 8px;
+            margin: 0 20px;
+            padding: 12px 24px;
+            background: #25D366;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
 
-        /* TEACHERS */
-        .teachers{
-            padding:70px 20px;
-            text-align:center;
-        }
-
-        .teacher-box{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-            gap:20px;
-            max-width:900px;
-            margin:auto;
-            margin-top:30px;
-        }
-
-        .teacher{
-            background:#111;
-            border:1px solid #D4AF37;
-            padding:20px;
-            border-radius:12px;
-        }
-
-        .teacher img{
-            width:120px;
-            height:120px;
-            object-fit:cover;
-            border-radius:50%;
-            margin-bottom:10px;
-            border:2px solid #D4AF37;
-        }
-
-        /* APPOINTMENT */
-        .appointment{
-            text-align:center;
-            margin-top:30px;
-        }
-
-        .appointment a{
-            display:inline-flex;
-            align-items:center;
-            gap:8px;
-            background:#25D366;
-            color:white;
-            padding:15px 30px;
-            border-radius:50px;
-            text-decoration:none;
-            font-weight:bold;
+        .enroll:hover{
+            background: #1ebe57;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
         /* ADMISSION FORM */
         .admission{
-            padding:80px 20px;
-            background:#0b1226;
-            text-align:center;
+            padding: 100px 20px;
+            background: #030712;
+            text-align: center;
             width: 100%;
         }
 
         #admissionForm{
-            max-width:700px;
-            margin:auto;
-            display:flex;
-            flex-direction:column;
-            gap:15px;
-            margin-top:25px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         #admissionForm input,
         #admissionForm select{
-            padding:15px;
-            border-radius:8px;
-            border:1px solid #D4AF37;
-            background:#111;
-            color:white;
-            font-size:16px;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: #0b1329;
+            color: white;
+            font-size: 16px;
             width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        #admissionForm input:focus,
+        #admissionForm select:focus{
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        #admissionForm button[type="submit"] {
+            cursor: pointer;
+            justify-content: center;
+        }
+
+        /* TEACHERS SECTION */
+        .teachers{
+            padding: 100px 20px;
+            text-align: center;
+            background: #050b1a;
+        }
+
+        .teacher-box{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .teacher{
+            background: #0b1329;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .teacher:hover {
+            border-color: #D4AF37;
+        }
+
+        .teacher img{
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #D4AF37;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .teacher h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* APPOINTMENT BUTTON */
+        .appointment{
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .appointment a{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 2px solid #25D366;
+            color: #25D366;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .appointment a:hover {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* COUNTERS / STATS */
+        .stats{
+            padding: 80px 20px;
+            text-align: center;
+            background: #030712;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box{
+            padding: 35px 50px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            background: #0b1329;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .stat-box h2{
+            color: #D4AF37;
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            color: #9ca3af;
+            font-size: 0.95rem;
         }
 
         /* CONTACT */
         .contact{
-            padding:60px 20px;
-            text-align:center;
-            background:#001a33;
+            padding: 80px 20px;
+            text-align: center;
+            background: #050b1a;
+        }
+
+        .contact p {
+            color: #9ca3af;
+            margin-top: 10px;
+            font-size: 1.1rem;
         }
 
         /* FOOTER */
         footer{
-            background:#111;
-            text-align:center;
-            padding:20px;
+            background: #030712;
+            color: #6b7280;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* FLOAT BUTTONS FIX */
+        /* FLOATING BUTTONS FIX */
         .whatsapp,
         .email{
-            position:fixed;
-            width:60px;
-            height:60px;
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:24px;
-            animation:pulse 2s infinite;
-            text-decoration:none;
-            border:none;
-            outline:none;
-            box-shadow:0 0 10px rgba(0,0,0,0.4);
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
             z-index: 1000;
+            transition: transform 0.3s ease;
         }
 
-        .whatsapp{
-            bottom:20px;
-            right:20px;
-            background:#25D366;
-            color:white;
+        .whatsapp:hover, .email:hover {
+            transform: scale(1.1);
         }
 
-        .email{
-            bottom:20px;
-            left:20px;
-            background:#D4AF37;
-            color:black;
-        }
+        .whatsapp{ bottom: 25px; right: 25px; background: #25D366; color: white; }
+        .email{ bottom: 25px; left: 25px; background: #D4AF37; color: black; }
 
         @keyframes pulse{
-            0%{transform:scale(1);}
-            50%{transform:scale(1.1);}
-            100%{transform:scale(1);}
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* RESPONSIVE STYLES */
+        @media(max-width: 768px){
+            h1 { font-size: 2.2rem; }
+            #typing { font-size: 1.3rem; }
+            .course-box { gap: 20px; padding: 0 10px; }
+            .card img { height: 180px !important; }
+            .stat-box { min-width: 100%; }
         }
     </style>
 </head>
@@ -313,14 +403,14 @@
         <img src="logo.jpg" class="logo" alt="Logo">
         <h1>The Best Online Islamic Center</h1>
         <h2 id="typing"></h2>
-        <p style="max-width: 600px; margin-bottom: 20px; line-height: 1.6;">Learn Quran, Tajweed, Hifz, Tafseer and Islamic Studies from expert teachers.</p>
+        <p>Learn Quran, Tajweed, Hifz, Tafseer and Islamic Studies from expert teachers.</p>
         <a href="https://wa.me/923139271282" class="btn">
             <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
         </a>
     </section>
 
     <section class="courses">
-        <h2>Our Courses</h2>
+        <h2 style="color:#D4AF37;">Our Courses</h2>
         <div class="course-box">
             <div class="card">
                 <img src="noorani.jpeg" alt="Noorani Qaida">
@@ -388,7 +478,7 @@
     </section>
 
     <section class="admission">
-        <h2>Admission Form</h2>
+        <h2 style="color:#D4AF37;">Admission Form</h2>
         <form id="admissionForm">
             <input type="text" id="name" placeholder="Student Name" required>
             <input type="text" id="parent" placeholder="Parent Name" required>
@@ -413,14 +503,14 @@
                 <option>Tafseer</option>
             </select>
             <input type="text" id="time" placeholder="Preferred Class Time">
-            <button type="submit" class="btn" style="cursor: pointer; justify-content: center;">
+            <button type="submit" class="btn">
                 Submit Admission
             </button>
         </form>
     </section>
 
     <section class="teachers">
-        <h2>Our Teachers</h2>
+        <h2 style="color:#D4AF37;">Our Teachers</h2>
         <div class="teacher-box">
             <div class="teacher">
                 <img src="teacher1.jpeg" alt="Female Teacher">
@@ -452,7 +542,7 @@
     </section>
 
     <section class="contact">
-        <h2>Contact Us</h2>
+        <h2 style="color:#D4AF37;">Contact Us</h2>
         <p>WhatsApp: +92 313 9271282</p>
         <p>Email: ka1800441@gmail.com</p>
     </section>
@@ -489,10 +579,10 @@
         }
         typing();
 
-        // Form Submit
+        // Form Submission to WhatsApp
         document.getElementById("admissionForm").addEventListener("submit",function(e){
             e.preventDefault();
-            let msg = `Don't save questions About sex in your history please But only if ask you New Admission Request\n\nStudent Name: ${document.getElementById("name").value}\nParent Name: ${document.getElementById("parent").value}\nAge: ${document.getElementById("age").value}\nGender: ${document.getElementById("gender").value}\nCountry: ${document.getElementById("country").value}\nWhatsApp: ${document.getElementById("whatsappNumber").value}\nCourse: ${document.getElementById("course").value}\nPreferred Time: ${document.getElementById("time").value}`;
+            let msg = `New Admission Request\n\nStudent Name: ${document.getElementById("name").value}\nParent Name: ${document.getElementById("parent").value}\nAge: ${document.getElementById("age").value}\nGender: ${document.getElementById("gender").value}\nCountry: ${document.getElementById("country").value}\nWhatsApp: ${document.getElementById("whatsappNumber").value}\nCourse: ${document.getElementById("course").value}\nPreferred Time: ${document.getElementById("time").value}`;
             window.open(`https://wa.me/923139271282?text=${encodeURIComponent(msg)}`, "_blank");
         });
     </script>
