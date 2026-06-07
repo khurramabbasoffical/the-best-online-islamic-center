@@ -1,157 +1,378 @@
+/* RESET & BASE STYLES */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body{
-background:#050816;
-color:white;
+    background: #050816;
+    color: white;
+    overflow-x: hidden; /* Page side py scroll na ho */
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero{
-height:100vh;
-background:linear-gradient(135deg,#000,#001f5c,#0f172a);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    height: 100vh;
+    background: linear-gradient(135deg, #000, #001f5c, #0f172a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-/* LOGO (ANIMATION ADDED) */
+/* LOGO */
 .logo{
-width:110px;
-height:110px;
-object-fit:cover;
-border-radius:50%;
-border:3px solid #D4AF37;
-box-shadow:0 0 15px rgba(212,175,55,0.4);
-margin-bottom:15px;
-animation:float 3s ease-in-out infinite;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #D4AF37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
 /* TITLES */
 .hero h1{
-color:#D4AF37;
-font-size:3rem;
-margin-bottom:10px;
+    color: #D4AF37;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .hero h2{
-color:white;
-margin-bottom:15px;
-min-height:40px;
+    color: white;
+    margin-bottom: 15px;
+    min-height: 40px;
 }
 
 /* TEXT */
 .hero p{
-max-width:700px;
-line-height:1.8;
-opacity:0.9;
+    max-width: 700px;
+    line-height: 1.8;
+    opacity: 0.9;
 }
 
-/* BUTTON (ANIMATION IMPROVED) */
+/* MAIN BUTTON */
 .btn{
-display:inline-block;
-margin-top:20px;
-background:#D4AF37;
-color:black;
-padding:14px 30px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:0.3s;
-box-shadow:0 0 10px rgba(212,175,55,0.3);
+    display: inline-block;
+    margin-top: 20px;
+    background: #D4AF37;
+    color: black;
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+    box-shadow: 0 0 10px rgba(212, 175, 55, .3);
 }
 
 .btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px rgba(212,175,55,0.6);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(212, 175, 55, .6);
 }
 
 /* ABOUT */
 .about{
-padding:80px 10%;
-text-align:center;
+    padding: 80px 10%;
+    text-align: center;
 }
 
 .about h2{
-color:#D4AF37;
-margin-bottom:25px;
+    color: #D4AF37;
+    margin-bottom: 25px;
 }
 
 .about p{
-max-width:900px;
-margin:15px auto;
-line-height:1.8;
-opacity:0.9;
+    max-width: 900px;
+    margin: 15px auto;
+    line-height: 1.8;
+    opacity: .9;
 }
 
-/* COURSES GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:20px 10%;
+/* COUNTERS / STATS */
+.stats{
+    padding: 70px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: #081126;
 }
 
-/* CARDS (ANIMATION ADDED) */
+.stat-box{
+    background: #111;
+    border: 1px solid #D4AF37;
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 220px;
+    text-align: center;
+    transition: .3s;
+}
+
+.stat-box:hover{
+    transform: translateY(-8px);
+}
+
+.stat-box h2{
+    font-size: 40px;
+    color: #D4AF37;
+    margin-bottom: 8px;
+}
+
+/* COURSES SECTION */
+.courses{
+    padding: 80px 20px;
+    background: #001a33;
+    text-align: center;
+}
+
+.courses h2{
+    color: #D4AF37;
+    margin-bottom: 30px;
+}
+
+.course-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* COURSE CARD (Yahan overflow block kiya hy) */
 .card{
-background:#111;
-border:1px solid #D4AF37;
-padding:20px;
-border-radius:12px;
-transition:0.4s;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
+    background: #111;
+    border: 1px solid #D4AF37;
+    border-radius: 15px;
+    overflow: hidden !important; /* Picture ko box se bahir jany sy rokta hy */
+    text-align: center;
+    transition: .4s;
+    box-shadow: 0 0 10px rgba(212, 175, 55, .15);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(212,175,55,0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(212, 175, 55, .35);
 }
 
-/* ICON INSIDE CARD (if used) */
+/* COURSE IMAGES FIXED */
 .card img{
-width:50px;
-margin-bottom:10px;
-transition:0.3s;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important; /* Image stretch ya kharab nahi hogi */
+    object-position: center !important;
+    display: block !important;
 }
 
-.card:hover img{
-transform:rotate(10deg) scale(1.1);
+.card h3{
+    color: #D4AF37;
+    padding: 15px 15px 5px;
+    font-size: 22px;
 }
 
-/* WHATSAPP BUTTON */
+.card p{
+    padding: 0 15px 15px;
+    line-height: 1.6;
+    min-height: 80px;
+    flex-grow: 1; /* Tmam text boxes ki height barabar rakhny k liye */
+}
+
+/* ENROLL BUTTON */
+.enroll{
+    display: inline-block;
+    margin-bottom: 20px;
+    align-self: center; /* Button card k center me rahy ga */
+    padding: 12px 22px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.enroll:hover{
+    background: #1faa52;
+    transform: scale(1.05);
+}
+
+/* TEACHERS */
+.teachers{
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.teacher-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.teacher{
+    background: #111;
+    border: 1px solid #D4AF37;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.teacher img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #D4AF37;
+    margin-bottom: 15px;
+}
+
+/* APPOINTMENT */
+.appointment{
+    margin-top: 30px;
+}
+
+.appointment a{
+    background: #25D366;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+/* ADMISSION FORM */
+.admission{
+    padding: 80px 20px;
+    background: #0b1226;
+    text-align: center;
+}
+
+#admissionForm{
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#admissionForm input,
+#admissionForm select{
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #D4AF37;
+    background: #111;
+    color: white;
+    font-size: 16px;
+}
+
+#admissionForm input:focus,
+#admissionForm select:focus{
+    outline: none;
+    box-shadow: 0 0 10px rgba(212, 175, 55, .4);
+}
+
+/* CONTACT */
+.contact{
+    padding: 70px 20px;
+    background: #001a33;
+    text-align: center;
+}
+
+.contact h2{
+    color: #D4AF37;
+    margin-bottom: 15px;
+}
+
+/* FOOTER */
+footer{
+    background: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+/* FLOATING EMAIL */
+.email{
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #D4AF37;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+    animation: pulse 2s infinite;
+    z-index: 999;
+}
+
+/* FLOATING WHATSAPP */
 .whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:#fff;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
-animation:pulse 2s infinite;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+    animation: pulse 2s infinite;
+    z-index: 999;
 }
 
 @keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* RESPONSIVE MOBILE STYLES */
+@media(max-width: 768px){
+    .hero h1{
+        font-size: 2rem;
+    }
+    
+    .card img{
+        height: 180px !important;
+    }
+    
+    .stat-box{
+        min-width: 150px;
+    }
+}
+/* Duniya ki koi bhi cheez jo card ke andar ho, wo bahar nahi nikal sakti */
+.card, .course-box, [class*="card"] {
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.card img, [class*="card"] img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
 }
