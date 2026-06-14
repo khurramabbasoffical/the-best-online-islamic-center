@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekend Quran Classes for Kids | The Best Online Islamic Center</title>
+<meta name="description" content="1-on-1 Weekend Quran classes for kids in US, UK, Australia and Canada. No weekday stress. Certified tutors. Book your free 3-day trial today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --gold:#D4AF37;--gold-dark:#AA7C11;
+  --bg:#030712;--bg2:#050b1a;--card:#0b1329;
+  --border:rgba(212,175,55,0.15);--border-h:rgba(212,175,55,0.45);
+  --text:#f3f4f6;--muted:#9ca3af;
+  --green:#25D366;--green-d:#1ebe57;
+  --fb:#1877F2;--ig:#E1306C;--r:18px;
+}
+html{scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* ══ NAVBAR ══ */
+nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(3,7,18,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;height:70px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;transition:all .35s;}
+nav.scrolled{background:rgba(3,7,18,0.97);border-bottom-color:rgba(212,175,55,0.3);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover;}
+.nav-logo span{color:var(--gold);font-size:.88rem;font-weight:700;line-height:1.3;}
+.nav-right{display:flex;align-items:center;gap:6px;}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:7px 12px;border-radius:8px;transition:all .25s;white-space:nowrap;}
+.nav-links a:hover{color:var(--gold);background:rgba(212,175,55,.08);}
+.nav-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:50px;margin-left:4px;animation:badgeBlink 2s ease-in-out infinite;}
+@keyframes badgeBlink{0%,100%{opacity:1;}50%{opacity:.5;}}
+.nav-socials{display:flex;align-items:center;gap:8px;margin-left:10px;}
+.nav-socials a{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none;border:1px solid var(--border);transition:all .25s;}
+.nsf{color:var(--fb);background:rgba(24,119,242,.07);}
+.nsf:hover{background:rgba(24,119,242,.18);border-color:rgba(24,119,242,.4);transform:translateY(-2px);}
+.nsi{color:var(--ig);background:rgba(225,48,108,.07);}
+.nsi:hover{background:rgba(225,48,108,.18);border-color:rgba(225,48,108,.4);transform:translateY(-2px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:all .3s;}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-menu{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(3,7,18,.98);border-bottom:1px solid var(--border);padding:18px 24px;z-index:998;flex-direction:column;gap:4px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:var(--muted);text-decoration:none;font-size:.97rem;font-weight:500;padding:11px 14px;border-radius:8px;transition:all .25s;}
+.mob-menu a:hover{color:var(--gold);background:rgba(212,175,55,.08);}
+.mob-socials{display:flex;gap:10px;padding:10px 14px 4px;}
+.mob-socials a{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;border:1px solid var(--border);transition:all .25s;}
+
+/* ══ HERO ══ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(ellipse 90% 70% at 50% 38%,#0d1f4e 0%,#030712 68%);padding:130px 20px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(212,175,55,.1) 1px,transparent 1px),radial-gradient(circle,rgba(212,175,55,.05) 1px,transparent 1px);background-size:55px 55px,28px 28px;background-position:0 0,14px 14px;}
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0);}10%{opacity:.5;}90%{opacity:.15;}100%{opacity:0;transform:translateY(-100vh) scale(1.4);}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:.76rem;font-weight:700;letter-spacing:1px;padding:7px 18px;border-radius:50px;margin-bottom:22px;position:relative;z-index:1;text-transform:uppercase;}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:dotBlink 1.5s ease-in-out infinite;}
+@keyframes dotBlink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.hero-logo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:2.5px solid var(--gold);box-shadow:0 0 0 10px rgba(212,175,55,.07),0 0 50px rgba(212,175,55,.2);margin-bottom:26px;position:relative;z-index:1;animation:floatLogo 4s ease-in-out infinite;}
+@keyframes floatLogo{0%,100%{transform:translateY(0);box-shadow:0 0 0 10px rgba(212,175,55,.07),0 0 50px rgba(212,175,55,.2);}50%{transform:translateY(-10px);box-shadow:0 0 0 16px rgba(212,175,55,.04),0 0 75px rgba(212,175,55,.32);}}
+.hero h1{color:var(--gold);font-size:2.75rem;font-weight:800;letter-spacing:-1px;max-width:720px;line-height:1.18;margin-bottom:14px;text-shadow:0 0 60px rgba(212,175,55,.2);position:relative;z-index:1;}
+.hero h1 em{color:#fff;font-style:normal;}
+.hero-sub{color:#cbd5e1;font-size:1.05rem;font-weight:500;max-width:560px;line-height:1.7;margin-bottom:28px;position:relative;z-index:1;}
+.hero-sub strong{color:var(--gold);}
+
+/* HERO IMAGE SLOT */
+.hero-img-wrap{width:100%;max-width:620px;border-radius:20px;overflow:hidden;margin-bottom:32px;position:relative;z-index:1;border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.5);}
+/* =============================================
+   📌 HERO IMAGE — Replace src with your image
+   Recommended: A child reading Quran / learning
+   Size: 1200x600px | Format: JPG or JPEG
+   File name example: hero-kids.jpg
+   ============================================= */
+.hero-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,18,.65) 0%,transparent 50%);}
+.hero-img-label{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(212,175,55,.15);backdrop-filter:blur(8px);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:.8rem;font-weight:700;padding:6px 18px;border-radius:50px;white-space:nowrap;}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;z-index:1;position:relative;margin-bottom:32px;}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#000;padding:15px 34px;border-radius:50px;font-weight:700;font-size:.97rem;text-decoration:none;animation:ctaPulse 2.5s ease-out infinite;transition:transform .3s,box-shadow .3s;}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 14px 38px rgba(212,175,55,.5);animation:none;}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.5);}70%{box-shadow:0 0 0 18px rgba(212,175,55,0);}100%{box-shadow:0 0 0 0 rgba(212,175,55,0);}}
+.btn-outline-green{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--green);color:var(--green);padding:14px 30px;border-radius:50px;font-weight:700;font-size:.97rem;text-decoration:none;transition:all .3s;}
+.btn-outline-green:hover{background:var(--green);color:#fff;box-shadow:0 8px 28px rgba(37,211,102,.35);}
+.trust-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;z-index:1;position:relative;}
+.trust-item{color:var(--muted);font-size:.83rem;display:flex;align-items:center;gap:6px;}
+.trust-item i{color:var(--gold);}
+
+/* ══ GOLD STRIP ══ */
+.gold-strip{background:linear-gradient(135deg,var(--gold),var(--gold-dark));padding:14px 20px;text-align:center;}
+.gold-strip p{color:#000;font-size:.9rem;font-weight:700;}
+
+/* ══ SHARED ══ */
+.sec{padding:96px 20px;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+.sec-label{display:inline-block;background:rgba(212,175,55,.1);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;border:1px solid rgba(212,175,55,.2);margin-bottom:14px;}
+.sec-title{font-size:2.1rem;font-weight:800;letter-spacing:-.5px;margin-bottom:10px;color:var(--gold);}
+.sec-sub{color:var(--muted);font-size:.96rem;max-width:530px;margin:0 auto 52px;line-height:1.75;}
+.center{text-align:center;}
+
+/* ══ ADVANTAGE ══ */
+.adv-sec{background:var(--bg2);}
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;max-width:1000px;margin:0 auto;}
+.adv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .35s;}
+.adv-card:hover{transform:translateY(-8px);border-color:var(--border-h);box-shadow:0 22px 55px rgba(0,0,0,.5);}
+/* ADVANTAGE CARD IMAGES */
+.adv-img{height:180px;overflow:hidden;position:relative;}
+.adv-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;}
+.adv-card:hover .adv-img img{transform:scale(1.07);}
+/* =============================================
+   📌 ADVANTAGE IMAGE 1 — No School Rush
+   Replace src with your image
+   Suggested: Happy child relaxing on weekend
+   File: adv1.jpg (800x400px)
+   📌 ADVANTAGE IMAGE 2 — Fresh Mind
+   Suggested: Focused child at desk
+   File: adv2.jpg
+   📌 ADVANTAGE IMAGE 3 — Certified Tutor
+   Suggested: Online class screenshot / teacher
+   File: adv3.jpg
+   ============================================= */
+.adv-body{padding:22px 22px 26px;}
+.adv-icon{width:48px;height:48px;border-radius:12px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--gold);margin-bottom:14px;}
+.adv-body h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+.adv-body p{color:var(--muted);font-size:.87rem;line-height:1.7;}
+
+/* ══ PRICING ══ */
+.pricing-sec{background:var(--bg);}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px;max-width:700px;margin:0 auto 26px;}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:40px 30px;text-align:center;position:relative;overflow:hidden;transition:all .35s;}
+.price-card:hover{transform:translateY(-8px);border-color:var(--border-h);box-shadow:0 22px 55px rgba(0,0,0,.5);}
+.price-card.featured{border-color:rgba(212,175,55,.5);}
+.price-card.featured::before{content:'⭐ Recommended';position:absolute;top:18px;right:-32px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#000;font-size:.68rem;font-weight:700;padding:5px 42px;transform:rotate(45deg);letter-spacing:.5px;}
+.price-tag{color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.price-amt{font-size:3rem;font-weight:800;color:var(--text);line-height:1;margin-bottom:4px;}
+.price-amt sup{font-size:1.3rem;vertical-align:super;color:var(--gold);}
+.price-amt sub{font-size:.9rem;color:var(--muted);font-weight:500;}
+.price-dur{color:var(--muted);font-size:.85rem;margin-bottom:8px;}
+.price-len{display:inline-block;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);color:var(--gold);font-size:.78rem;font-weight:600;padding:4px 14px;border-radius:50px;margin-bottom:24px;}
+.price-feats{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:11px;}
+.price-feats li{color:var(--muted);font-size:.87rem;display:flex;align-items:center;gap:9px;}
+.price-feats li i{color:var(--gold);font-size:.72rem;flex-shrink:0;}
+.btn-price{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;}
+.btn-price:hover,.price-card.featured .btn-price{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#000;border-color:transparent;box-shadow:0 6px 22px rgba(212,175,55,.3);}
+.pricing-note{color:var(--muted);font-size:.87rem;text-align:center;}
+.pricing-note a{color:var(--green);text-decoration:none;font-weight:600;}
+
+/* ══ INSTRUCTOR ══ */
+.inst-sec{background:var(--bg2);}
+.inst-grid{display:grid;grid-template-columns:auto 1fr;gap:60px;max-width:900px;margin:0 auto;align-items:center;}
+.inst-visual{display:flex;flex-direction:column;align-items:center;gap:16px;}
+.inst-av{position:relative;width:180px;height:180px;}
+/* =============================================
+   📌 INSTRUCTOR IMAGE
+   Replace src="/teacher1.jpeg" with your image
+   Recommended size: 400x400px circle crop
+   File: teacher1.jpeg (already in your folder)
+   ============================================= */
+.inst-av img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 0 0 8px rgba(212,175,55,.1),0 12px 40px rgba(0,0,0,.5);position:relative;z-index:1;}
+.inst-av::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px dashed rgba(212,175,55,.4);animation:spinR 14s linear infinite;}
+@keyframes spinR{to{transform:rotate(360deg);}}
+.inst-bdg-list{display:flex;flex-direction:column;gap:8px;align-items:center;}
+.inst-bdg{display:inline-flex;align-items:center;gap:6px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);color:var(--gold);font-size:.74rem;font-weight:600;padding:6px 14px;border-radius:50px;white-space:nowrap;}
+.inst-text h2{font-size:1.9rem;font-weight:800;color:var(--gold);margin-bottom:6px;}
+.inst-sub{color:var(--muted);font-size:.9rem;margin-bottom:20px;font-style:italic;}
+.inst-text p{color:var(--muted);font-size:.93rem;line-height:1.85;margin-bottom:14px;}
+.inst-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;}
+.inst-stat strong{display:block;color:var(--gold);font-size:1.6rem;font-weight:800;}
+.inst-stat span{color:var(--muted);font-size:.77rem;}
+
+/* ══ STUDENTS SECTION ══ */
+.students-sec{background:var(--bg);}
+.students-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;max-width:1000px;margin:0 auto;}
+.student-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .35s;text-align:center;}
+.student-card:hover{transform:translateY(-6px);border-color:var(--border-h);box-shadow:0 18px 48px rgba(0,0,0,.5);}
+.student-img{height:210px;overflow:hidden;}
+/* =============================================
+   📌 STUDENT IMAGES — 4 cards
+   Replace each src below with your own image
+   Recommended: Kids studying / learning online
+   Sizes: 400x420px | Format: JPG or JPEG
+
+   CARD 1: student1.jpg  — UK Student
+   CARD 2: student2.jpg  — USA Student
+   CARD 3: student3.jpg  — Australia Student
+   CARD 4: student4.jpg  — Canada Student
+
+   Put these files in your main project folder
+   ============================================= */
+.student-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.student-card:hover .student-img img{transform:scale(1.06);}
+.student-body{padding:14px 16px 20px;}
+.student-flag{font-size:1.4rem;margin-bottom:5px;}
+.student-name{color:var(--gold);font-size:.9rem;font-weight:700;margin-bottom:3px;}
+.student-body p{color:var(--muted);font-size:.82rem;}
+
+/* ══ WHY US ══ */
+.why-sec{background:var(--bg2);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:0 auto;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 22px;transition:all .3s;}
+.why-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 16px 45px rgba(0,0,0,.45);}
+.why-card h4{color:var(--gold);font-size:.95rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:9px;}
+.why-card p{color:var(--muted);font-size:.85rem;line-height:1.65;}
+
+/* ══ REVIEWS ══ */
+.reviews-sec{background:var(--bg);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1100px;margin:0 auto;}
+.rev-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;text-align:left;transition:all .35s;}
+.rev-card:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 18px 48px rgba(0,0,0,.5);}
+.rev-stars{color:var(--gold);font-size:.9rem;margin-bottom:12px;letter-spacing:2px;}
+.rev-text{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:16px;font-style:italic;}
+.rev-author{display:flex;align-items:center;gap:10px;}
+.rev-av{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#000;}
+.rev-name{color:var(--text);font-size:.87rem;font-weight:600;}
+.rev-loc{color:var(--muted);font-size:.76rem;}
+
+/* ══ WHATSAPP CTA ══ */
+.wa-sec{background:linear-gradient(135deg,#060f2a 0%,#030712 50%,#060f2a 100%);padding:96px 20px;text-align:center;position:relative;overflow:hidden;}
+.wa-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 80% at 50% 50%,rgba(212,175,55,.06) 0%,transparent 70%);pointer-events:none;}
+.wa-icon{width:80px;height:80px;border-radius:50%;background:rgba(37,211,102,.1);border:2px solid rgba(37,211,102,.3);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--green);margin:0 auto 24px;animation:waPulse 2s ease-in-out infinite;position:relative;z-index:1;}
+@keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4);}50%{box-shadow:0 0 0 16px rgba(37,211,102,.05);}}
+.wa-sec h2{font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:10px;position:relative;z-index:1;}
+.wa-sec p{color:var(--muted);font-size:.97rem;max-width:480px;margin:0 auto 32px;line-height:1.7;position:relative;z-index:1;}
+.btn-wa-big{display:inline-flex;align-items:center;gap:11px;background:var(--green);color:#fff;padding:17px 44px;border-radius:50px;font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 30px rgba(37,211,102,.35);transition:all .3s;position:relative;z-index:1;}
+.btn-wa-big:hover{background:var(--green-d);transform:translateY(-4px);box-shadow:0 14px 42px rgba(37,211,102,.5);}
+.wa-note{color:var(--muted);font-size:.8rem;margin-top:14px;position:relative;z-index:1;}
+
+/* ══ FAQ ══ */
+.faq-sec{background:var(--bg2);}
+.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .3s;}
+.faq-item.open{border-color:rgba(212,175,55,.4);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:19px 22px;cursor:pointer;font-weight:600;font-size:.93rem;transition:color .25s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);font-size:.8rem;transition:transform .3s;flex-shrink:0;margin-left:12px;}
+.faq-item.open .faq-q i{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-a p{padding:0 22px 18px;color:var(--muted);font-size:.89rem;line-height:1.75;}
+
+/* ══ FOOTER ══ */
+footer{background:#020509;border-top:1px solid rgba(255,255,255,.04);padding:38px 20px;text-align:center;}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;}
+.footer-logo img{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover;}
+.footer-logo span{color:var(--gold);font-size:.87rem;font-weight:700;line-height:1.3;}
+.footer-social{display:flex;justify-content:center;gap:10px;margin-bottom:16px;}
+.footer-social a{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;text-decoration:none;border:1px solid var(--border);transition:all .25s;}
+.fs-fb{color:var(--fb);}.fs-fb:hover{background:rgba(24,119,242,.15);border-color:rgba(24,119,242,.4);}
+.fs-ig{color:var(--ig);}.fs-ig:hover{background:rgba(225,48,108,.15);border-color:rgba(225,48,108,.4);}
+.fs-wa{color:var(--green);}.fs-wa:hover{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.4);}
+.fs-em{color:var(--gold);}.fs-em:hover{background:rgba(212,175,55,.15);border-color:rgba(212,175,55,.4);}
+.footer-nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-nav a{color:var(--muted);text-decoration:none;font-size:.82rem;transition:color .25s;}
+.footer-nav a:hover{color:var(--gold);}
+footer p{color:#4b5563;font-size:.8rem;}
+footer span{color:var(--gold);}
+
+/* ══ FLOATING ══ */
+.float-btn{position:fixed;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;z-index:1000;transition:transform .3s;}
+.float-btn:hover{transform:scale(1.12);}
+.fwa{bottom:28px;right:28px;background:var(--green);color:#fff;animation:hbeat 2s ease-in-out infinite;}
+.fem{bottom:28px;left:28px;background:var(--gold);color:#000;animation:hbeat 2s ease-in-out infinite .5s;}
+@keyframes hbeat{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5);}40%{box-shadow:0 0 0 13px rgba(37,211,102,.1);}80%{box-shadow:0 0 0 5px rgba(37,211,102,.03);}}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:900px){.inst-grid{grid-template-columns:1fr;text-align:center;}.inst-stats{justify-content:center;}.inst-bdg-list{flex-direction:row;flex-wrap:wrap;justify-content:center;}}
+@media(max-width:768px){nav{padding:0 18px;}.nav-right{display:none;}.hamburger{display:flex;}.hero h1{font-size:1.9rem;}.sec-title{font-size:1.75rem;}.pricing-grid{grid-template-columns:1fr;}.students-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.hero-btns{flex-direction:column;align-items:center;}.trust-row{flex-direction:column;align-items:center;gap:10px;}.students-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <a href="/index.html" class="nav-logo">
+    <!-- 📌 LOGO: File = logo.jpg (already in your folder) -->
+    <img src="/logo.jpg" alt="Logo">
+    <span>The Best Online<br>Islamic Center</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/index.html#courses">Courses</a></li>
+      <li><a href="/index.html#fees">Fees</a></li>
+      <li><a href="/index.html#admission">Admission <span class="nav-badge">🟡 Free Trial</span></a></li>
+      <li><a href="/index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="nsf"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="nsi"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html" onclick="closeMob()">Home</a>
+  <a href="/index.html#about" onclick="closeMob()">About</a>
+  <a href="/index.html#courses" onclick="closeMob()">Courses</a>
+  <a href="/index.html#fees" onclick="closeMob()">Fees</a>
+  <a href="/index.html#admission" onclick="closeMob()">Admission</a>
+  <a href="/index.html#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-socials">
+    <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="nsf"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="nsi"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-badge"><span class="dot"></span> Weekend-Only Program — Now Enrolling</div>
+  <!-- 📌 LOGO in hero -->
+  <img src="logo.jpg" class="hero-logo" alt="Logo">
+  <h1>Give Your Child the Gift of Quran, <em>Without Weekday Pressure.</em></h1>
+  <p class="hero-sub"><strong>1-on-1 Weekend Quran Classes for Kids</strong> in US, UK, Australia & Canada.<br>Saturday & Sunday only — school always comes first.</p>
+
+  <!-- =============================================
+       📌 HERO MAIN IMAGE
+       Replace "hero-kids.jpg" with your image file
+       Put the file in your main project folder
+       Best size: 1200x500px | JPG or JPEG
+       Suggested content: Child learning Quran online
+       ============================================= -->
+  <div class="hero-img-wrap">
+    <img src="hero-kids.jpg" alt="Muslim child learning Quran online on weekend">
+    <div class="hero-img-overlay"></div>
+    <span class="hero-img-label">✦ Live 1-on-1 Weekend Classes</span>
+  </div>
+
+  <div class="hero-btns">
+    <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20Weekend%20Quran%20classes%20for%20my%20child." class="btn-gold" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> Book 3-Day Free Trial
+    </a>
+    <a href="#pricing" class="btn-outline-green">
+      <i class="fa-solid fa-tag"></i> See Pricing
+    </a>
+  </div>
+  <div class="trust-row">
+    <span class="trust-item"><i class="fa-solid fa-check-circle"></i> No Weekday Stress</span>
+    <span class="trust-item"><i class="fa-solid fa-check-circle"></i> 1-on-1 Attention</span>
+    <span class="trust-item"><i class="fa-solid fa-check-circle"></i> Certified Tajweed Tutor</span>
+    <span class="trust-item"><i class="fa-solid fa-check-circle"></i> Free Trial — No Card Needed</span>
+  </div>
+</section>
+
+<!-- ══ GOLD STRIP ══ -->
+<div class="gold-strip">
+  <p>🎁 3-Day Free Trial &nbsp;|&nbsp; Sat & Sun Classes Only &nbsp;|&nbsp; Kids Age 4.5+ &nbsp;|&nbsp; No Registration Fee</p>
+</div>
+
+<!-- ══ WEEKEND ADVANTAGE ══ -->
+<section class="sec adv-sec" id="advantage">
+  <div class="sec-inner center">
+    <span class="sec-label">The Weekend Edge</span>
+    <h2 class="sec-title">Why Weekend Classes Are Better</h2>
+    <p class="sec-sub">Why thousands of Western Muslim parents choose weekend-only Quran learning for their children.</p>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-img">
+          <!-- 📌 ADVANTAGE IMAGE 1
+               File name: adv1.jpg
+               Suggested: Happy child on weekend, relaxed
+               Size: 800x400px -->
+          <img src="/weekend/adv1.jpg" alt="No School Rush">
+        </div>
+        <div class="adv-body">
+          <div class="adv-icon"><i class="fa-solid fa-school"></i></div>
+          <h3>No School Rush</h3>
+          <p>Classes only on Saturday and Sunday — your child's school week is completely free. No homework conflicts, no tired evenings, no stress.</p>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-img">
+          <!-- 📌 ADVANTAGE IMAGE 2
+               File name: adv2.jpg
+               Suggested: Focused child studying happily
+               Size: 800x400px -->
+          <img src="/weekend/adv2.jpg" alt="Fresh Mind">
+        </div>
+        <div class="adv-body">
+          <div class="adv-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Fresh & Focused Mind</h3>
+          <p>Weekends mean a rested, energized child who fully focuses on Quran — faster progress and better retention of every lesson.</p>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-img">
+          <!-- 📌 ADVANTAGE IMAGE 3
+               File name: adv3.jpeg
+               Suggested: Online class / teacher with student
+               Size: 800x400px -->
+          <img src="/weekend/adv3.jpeg" alt="Certified Tutor">
+        </div>
+        <div class="adv-body">
+          <div class="adv-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <h3>Certified 1-on-1 Tutor</h3>
+          <p>Every session is 1-on-1 with a certified Tajweed specialist — not a group class where your child gets lost in the crowd.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="sec pricing-sec" id="pricing">
+  <div class="sec-inner center">
+    <span class="sec-label">Transparent Pricing</span>
+    <h2 class="sec-title">Simple, Affordable Plans</h2>
+    <p class="sec-sub">No hidden fees. No registration charges. Start with a completely free 3-day trial.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <p class="price-tag">Starter</p>
+        <p class="price-amt"><sup>$</sup>35<sub>/mo</sub></p>
+        <p class="price-dur">Weekend Classes (Sat & Sun)</p>
+        <span class="price-len">⏱ 30 Minutes / Class</span>
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+          <li><i class="fa-solid fa-check"></i> Certified Teacher</li>
+          <li><i class="fa-solid fa-check"></i> Learning Materials</li>
+          <li><i class="fa-solid fa-check"></i> 3-Day Free Trial</li>
+          <li><i class="fa-solid fa-check"></i> Male or Female Tutor</li>
+        </ul>
+        <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20Starter%20Weekend%20Plan%20%2435%2Fmonth." class="btn-price" target="_blank"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <p class="price-tag">Premium</p>
+        <p class="price-amt"><sup>$</sup>45<sub>/mo</sub></p>
+        <p class="price-dur">Weekend Classes (Sat & Sun)</p>
+        <span class="price-len">⏱ 45 Minutes / Class</span>
+        <ul class="price-feats">
+          <li><i class="fa-solid fa-check"></i> 1-on-1 Live Classes</li>
+          <li><i class="fa-solid fa-check"></i> Senior Certified Teacher</li>
+          <li><i class="fa-solid fa-check"></i> All Learning Materials</li>
+          <li><i class="fa-solid fa-check"></i> Monthly Progress Report</li>
+          <li><i class="fa-solid fa-check"></i> Completion Certificate</li>
+        </ul>
+        <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20am%20interested%20in%20Premium%20Weekend%20Plan%20%2445%2Fmonth." class="btn-price" target="_blank"><i class="fa-brands fa-whatsapp"></i> Get Started</a>
+      </div>
+    </div>
+    <p class="pricing-note">Sibling discount available? <a href="https://wa.me/923139271282?text=Assalamualaikum%20I%20want%20to%20ask%20about%20sibling%20discounts." target="_blank">Ask us on WhatsApp →</a></p>
+  </div>
+</section>
+
+<!-- ══ INSTRUCTOR ══ -->
+<section class="sec inst-sec" id="instructor">
+  <div class="sec-inner">
+    <div class="inst-grid">
+      <div class="inst-visual">
+        <div class="inst-av">
+          <!-- 📌 INSTRUCTOR IMAGE
+               File: teacher1.jpeg (already in your folder)
+               Or replace with any professional photo
+               Size: 400x400px circle -->
+          <img src="/weekend/teacher1.jpeg" alt="Lead Instructor">
+        </div>
+        <div class="inst-bdg-list">
+          <span class="inst-bdg"><i class="fa-solid fa-certificate"></i> Tajweed Certified</span>
+          <span class="inst-bdg"><i class="fa-solid fa-star"></i> 6+ Years Experience</span>
+          <span class="inst-bdg"><i class="fa-solid fa-globe"></i> 150+ Students Taught</span>
+        </div>
+      </div>
+      <div class="inst-text">
+        <span class="sec-label">Your Teacher</span>
+        <h2>Meet Your Weekend Instructor</h2>
+        <p class="inst-sub">Certified Quran & Tajweed Specialist — Non-Native Speaker Expert</p>
+        <p>Our lead weekend instructor holds a formal Tajweed certification from a recognized Islamic institution with over 6 years of dedicated experience teaching children and adults from the UK, USA, Canada and Australia.</p>
+        <p>Fluent in English, Urdu and Punjabi — our instructor specializes in non-Arabic speaking students using proven, child-friendly, patient teaching methods that deliver real, measurable results every single session.</p>
+        <div class="inst-stats">
+          <div class="inst-stat"><strong>6+</strong><span>Years Teaching</span></div>
+          <div class="inst-stat"><strong>150+</strong><span>Students Taught</span></div>
+          <div class="inst-stat"><strong>4.9★</strong><span>Parent Rating</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STUDENTS SECTION ══ -->
+<section class="sec students-sec" id="students">
+  <div class="sec-inner center">
+    <span class="sec-label">Our Students</span>
+    <h2 class="sec-title">Kids Learning Every Weekend</h2>
+    <p class="sec-sub">From age 4.5 to adults — students from UK, USA, Australia and Canada learning Quran with us every weekend.</p>
+    <div class="students-grid">
+      <div class="student-card">
+        <div class="student-img">
+          <!-- =============================================
+               📌 STUDENT IMAGE 1 — UK Student
+               File name: student1.jpg
+               Put in your main project folder
+               Suggested: Child reading Quran / on laptop
+               Size: 400x420px
+               ============================================= -->
+          <img src="student1.jpg" alt="Student from UK">
+        </div>
+        <div class="student-body">
+          <p class="student-flag">🇬🇧</p>
+          <p class="student-name">Student — UK</p>
+          <p>Learning Noorani Qaida</p>
+        </div>
+      </div>
+      <div class="student-card">
+        <div class="student-img">
+          <!-- 📌 STUDENT IMAGE 2 — USA Student
+               File name: student2.jpg
+               Suggested: Child with Quran / tablet -->
+          <img src="/weekend/student2.jpg" alt="Student from USA">
+        </div>
+        <div class="student-body">
+          <p class="student-flag">🇺🇸</p>
+          <p class="student-name">Student — USA</p>
+          <p>Learning Tajweed Rules</p>
+        </div>
+      </div>
+      <div class="student-card">
+        <div class="student-img">
+          <!-- 📌 STUDENT IMAGE 3 — Australia Student
+               File name: student3.jpg
+               Suggested: Young child smiling with Quran -->
+          <img src="/weekend/student3.jpg" alt="Student from Australia">
+        </div>
+        <div class="student-body">
+          <p class="student-flag">🇦🇺</p>
+          <p class="student-name">Student — Australia</p>
+          <p>Learning Nazra Quran</p>
+        </div>
+      </div>
+      <div class="student-card">
+        <div class="student-img">
+          <!-- 📌 STUDENT IMAGE 4 — Canada Student
+               File name: student4.jpg
+               Suggested: Child doing online class -->
+          <img src="/weekend/student4.jpg" alt="Student from Canada">
+        </div>
+        <div class="student-body">
+          <p class="student-flag">🇨🇦</p>
+          <p class="student-name">Student — Canada</p>
+          <p>Learning Hifz Program</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY US ══ -->
+<section class="sec why-sec" id="why">
+  <div class="sec-inner center">
+    <span class="sec-label">Why Parents Choose Us</span>
+    <h2 class="sec-title">Why Parents Trust Our Weekend Program</h2>
+    <p class="sec-sub">Consistency, care and clear progress — the 3 things Western parents value most.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4><i class="fa-solid fa-calendar-check"></i> Consistent Schedule</h4>
+        <p>Same time every weekend — children build a reliable habit without disrupting their school or activity schedule.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fa-solid fa-chart-line"></i> Monthly Progress Reports</h4>
+        <p>Parents receive a clear WhatsApp summary every month showing exactly what their child learned and what comes next.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fa-solid fa-heart"></i> Patience First Approach</h4>
+        <p>Our tutors work at the child's pace — never rushing, always encouraging, always celebrating small wins.</p>
+      </div>
+      <div class="why-card">
+        <h4><i class="fa-solid fa-venus-mars"></i> Male & Female Tutors</h4>
+        <p>Choose a male or female instructor — full flexibility and full comfort for every family anywhere in the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ══ -->
+<section class="sec reviews-sec" id="reviews">
+  <div class="sec-inner center">
+    <span class="sec-label">Parent Reviews</span>
+    <h2 class="sec-title">What Parents Are Saying</h2>
+    <p class="sec-sub">Real feedback from families across the US, UK, Canada and Australia.</p>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"The weekend timing is perfect. My son loves his Saturday Quran session — it doesn't clash with school at all. His Tajweed has genuinely improved in just 6 weeks. Highly recommend."</p>
+        <div class="rev-author"><div class="rev-av">S</div><div><p class="rev-name">Sarah M.</p><p class="rev-loc">London, United Kingdom 🇬🇧</p></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"We tried weekday classes before and it was chaos. Switching to weekend-only changed everything. My daughter is calm, focused, and actually excited for Sunday class now."</p>
+        <div class="rev-author"><div class="rev-av">A</div><div><p class="rev-name">Ahmed K.</p><p class="rev-loc">Texas, United States 🇺🇸</p></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"The instructor is incredibly patient with my 5-year-old. The 30-minute sessions are perfect. The monthly progress report on WhatsApp is a brilliant touch that keeps me fully informed."</p>
+        <div class="rev-author"><div class="rev-av">F</div><div><p class="rev-name">Fatima R.</p><p class="rev-loc">Toronto, Canada 🇨🇦</p></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Finding a reliable female tutor for my daughter in Australia was hard. This academy solved it completely. Professional, flexible and the results speak for themselves."</p>
+        <div class="rev-author"><div class="rev-av">N</div><div><p class="rev-name">Nadia H.</p><p class="rev-loc">Sydney, Australia 🇦🇺</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHATSAPP CTA ══ -->
+<section class="wa-sec" id="start">
+  <div class="wa-icon"><i class="fa-brands fa-whatsapp"></i></div>
+  <h2>Ready to Start Your Child's Quran Journey?</h2>
+  <p>Join families across US, UK, Canada and Australia. Book a completely free 3-day trial — no payment, no commitment needed.</p>
+  <a href="https://wa.me/923139271282?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Weekend%20Quran%20classes%20for%20my%20child." class="btn-wa-big" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i> Get Started via WhatsApp
+  </a>
+  <p class="wa-note">We typically respond within 30 minutes • Available 7 days a week</p>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="sec faq-sec" id="faq">
+  <div class="sec-inner center">
+    <span class="sec-label">FAQ</span>
+    <h2 class="sec-title">Common Questions</h2>
+    <p class="sec-sub">Everything parents ask before booking their child's first class.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How does the free trial class work? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a"><p>Simply message us on WhatsApp and we will schedule 3 completely free weekend sessions for your child. No registration fee, no credit card, no commitment. If you love it we continue — if not, no pressure at all.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How can I pay the monthly fee? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a"><p>We accept PayPal, bank transfer and all major online cards — making it easy for families in US, UK, Canada and Australia. Our team will guide you through the payment process on WhatsApp.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What software is used for the classes? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a"><p>All live 1-on-1 classes are held on Zoom or Skype — whichever you prefer. Both are completely free and work on any phone, tablet or laptop easily.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I choose a male or female tutor? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a"><p>Absolutely. We have both certified male and female tutors. Simply let us know your preference when you message us on WhatsApp and we will match you with the right teacher immediately.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="/logo.jpg" alt="Logo">
+    <span>The Best Online<br>Islamic Center</span>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/share/1CseXfsN4n/" target="_blank" class="fs-fb"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/the.best.online.islamic.center" target="_blank" class="fs-ig"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://wa.me/923139271282" target="_blank" class="fs-wa"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="mailto:ka1800441@gmail.com" class="fs-em"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+  <div class="footer-nav">
+    <a href="/index.html">Main Website</a>
+    <a href="/index.html#courses">Courses</a>
+    <a href="/index.html#fees">Fees</a>
+    <a href="/index.html#admission">Admission</a>
+    <a href="/index.html#contact">Contact</a>
+  </div>
+  <p>&copy; 2026 <span>The Best Online Islamic Center</span>. All Rights Reserved.</p>
+</footer>
+
+<a href="mailto:ka1800441@gmail.com" class="float-btn fem"><i class="fa-solid fa-envelope"></i></a>
+<a href="https://wa.me/923139271282?text=Hi%20I%20am%20interested%20in%20Weekend%20Quran%20classes." class="float-btn fwa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+(function(){const w=document.getElementById('particles');if(!w)return;for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*15}%;width:${2+Math.random()*3}px;height:${2+Math.random()*3}px;animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*8}s;`;w.appendChild(p);}})();
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('active');mob.classList.toggle('open');});
+function closeMob(){ham.classList.remove('active');mob.classList.remove('open');}
+document.addEventListener('click',e=>{if(!ham.contains(e.target)&&!mob.contains(e.target))closeMob();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement,was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');});});
+</script>
+</body>
+</html>
