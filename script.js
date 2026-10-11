@@ -1,9 +1,303 @@
-const NUMBER='923139271282';const waUrl=m=>'https://wa.me/'+NUMBER+'?text='+encodeURIComponent(m);document.getElementById('year').textContent=new Date().getFullYear();
-const menu=document.querySelector('.menu'),nav=document.querySelector('nav');menu.addEventListener('click',()=>{nav.classList.toggle('open');menu.textContent=nav.classList.contains('open')?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.textContent='☰'}));
-const words=['Quran Reading','Tajweed','Hifz','Islamic Studies'];let wi=0;const typed=document.getElementById('typed');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{wi=(wi+1)%words.length;typed.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});typed.textContent=words[wi]},2400);
-const reveals=document.querySelectorAll('.reveal');if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.12});reveals.forEach(e=>obs.observe(e))}else reveals.forEach(e=>e.classList.add('visible'));
-document.querySelectorAll('[data-course]').forEach(a=>a.addEventListener('click',()=>{const s=document.getElementById('course');const target=a.dataset.course.toLowerCase();const op=[...s.options].find(o=>o.text.toLowerCase().includes(target)||target.includes(o.text.toLowerCase()));if(op)s.value=op.value}));
-document.getElementById('trial-form').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.currentTarget);const msg=['Assalamu Alaikum! I would like to ask about the 3-day free trial at The Best Online Islamic Center.','',`Parent/student name: ${f.get('name')}`,`Learner age: ${f.get('age')}`,`Course: ${f.get('course')}`,`Country/time zone: ${f.get('country')}`,`Preferred days/time: ${f.get('time')||'To be discussed'}`,'','Please let me know available trial times. I understand the time is confirmed manually and the class will take place on Zoom.'].join('\n');window.open(waUrl(msg),'_blank','noopener,noreferrer')});
-document.getElementById('wa').href=waUrl('Assalamu Alaikum! I would like to enquire about online Quran classes and the 3-day free trial at The Best Online Islamic Center.');
-let idx=0;const track=document.getElementById('track'),dots=[...document.querySelectorAll('.dots button')];function slide(){track.style.transform=innerWidth<=740?`translateX(-${idx*100}%)`:'translateX(0)';dots.forEach((d,i)=>d.classList.toggle('active',i===idx))}document.getElementById('next').onclick=()=>{idx=(idx+1)%3;slide()};document.getElementById('prev').onclick=()=>{idx=(idx+2)%3;slide()};dots.forEach((d,i)=>d.onclick=()=>{idx=i;slide()});addEventListener('resize',slide);
-const topBtn=document.getElementById('backtop');addEventListener('scroll',()=>topBtn.classList.toggle('visible',scrollY>450),{passive:true});topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ==========================================================================
+     1. WHATSAPP PHONE & BASE UTILITIES
+     ========================================================================== */
+  const whatsappNumber = '923139271282';
+
+  // Auto Update Copyright Year in Footer
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+
+
+  /* ==========================================================================
+     2. MOBILE MENU TOGGLE
+     ========================================================================== */
+  const menuBtn = document.querySelector('.menu');
+  const navMenu = document.querySelector('nav');
+
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when a navigation link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  }
+
+
+  /* ==========================================================================
+     3. HERO SECTION TYPING ANIMATION
+     ========================================================================== */
+  const typedSpan = document.getElementById('typed');
+  if (typedSpan) {
+    const subjects = [
+      'Quran Reading',
+      'Noorani Qaida',
+      'Tajweed Rules',
+      'Hifz Programme',
+      'Quran Translation',
+      'Tafseer-e-Quran',
+      'Kalmas & Namaz'
+    ];
+    let subjectIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetweenWords = 2000;
+
+    function typeEffect() {
+      const currentWord = subjects[subjectIndex];
+      
+      if (isDeleting) {
+        typedSpan.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedSpan.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        currentSpeed = delayBetweenWords;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        subjectIndex = (subjectIndex + 1) % subjects.length;
+        currentSpeed = 500;
+      }
+
+      setTimeout(typeEffect, currentSpeed);
+    }
+
+    typeEffect();
+  }
+
+
+  /* ==========================================================================
+     4. FAQ ACCORDION INTERACTIVITY
+     ========================================================================== */
+  const faqArticles = document.querySelectorAll('.faq .course');
+
+  faqArticles.forEach(item => {
+    item.style.cursor = 'pointer';
+    const heading = item.querySelector('h3');
+    const paragraph = item.querySelector('p');
+
+    if (heading && paragraph) {
+      // Add a visual indicator to the FAQ question
+      heading.style.display = 'flex';
+      heading.style.justifyContent = 'space-between';
+      heading.style.alignItems = 'center';
+      
+      const toggleIcon = document.createElement('span');
+      toggleIcon.textContent = '+';
+      toggleIcon.style.fontSize = '1.2rem';
+      toggleIcon.style.color = '#dfb15b';
+      toggleIcon.style.transition = 'transform 0.3s ease';
+      heading.appendChild(toggleIcon);
+
+      // Initially collapse paragraph
+      paragraph.style.display = 'none';
+      paragraph.style.marginTop = '10px';
+
+      item.addEventListener('click', () => {
+        const isOpen = paragraph.style.display === 'block';
+
+        // Close all other FAQs
+        faqArticles.forEach(otherItem => {
+          const otherPara = otherItem.querySelector('p');
+          const otherIcon = otherItem.querySelector('h3 span');
+          if (otherPara) otherPara.style.display = 'none';
+          if (otherIcon) {
+            otherIcon.textContent = '+';
+            otherIcon.style.transform = 'rotate(0deg)';
+          }
+        });
+
+        // Toggle current FAQ
+        if (!isOpen) {
+          paragraph.style.display = 'block';
+          toggleIcon.textContent = '-';
+          toggleIcon.style.transform = 'rotate(180deg)';
+        }
+      });
+    }
+  });
+
+
+  /* ==========================================================================
+     5. DYNAMIC TESTIMONIAL / FEEDBACK SLIDER
+     ========================================================================== */
+  const track = document.getElementById('track');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const dotsContainer = document.querySelector('.dots');
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('button') : [];
+
+  if (track && prevBtn && nextBtn) {
+    const reviews = track.querySelectorAll('.review');
+    let currentIndex = 0;
+    const totalReviews = reviews.length;
+
+    function updateSlider(index) {
+      if (index < 0) {
+        currentIndex = totalReviews - 1;
+      } else if (index >= totalReviews) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      // Slide track horizontally
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      track.style.transition = 'transform 0.4s ease-in-out';
+
+      // Update active dot
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      updateSlider(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      updateSlider(currentIndex + 1);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        updateSlider(idx);
+      });
+    });
+
+    // Auto-advance slider every 6 seconds
+    setInterval(() => {
+      updateSlider(currentIndex + 1);
+    }, 6000);
+  }
+
+
+  /* ==========================================================================
+     6. WHATSAPP ENQUIRY FOR COURSE LINKS
+     ========================================================================== */
+  const courseLinks = document.querySelectorAll('a[data-course]');
+
+  courseLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const courseName = link.getAttribute('data-course');
+      if (courseName) {
+        e.preventDefault();
+        
+        // Select the course dropdown in trial form if available
+        const courseSelect = document.getElementById('course');
+        if (courseSelect) {
+          for (let i = 0; i < courseSelect.options.length; i++) {
+            if (courseSelect.options[i].text.toLowerCase().includes(courseName.toLowerCase())) {
+              courseSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+
+        // Smooth scroll to trial section
+        const trialSection = document.getElementById('trial');
+        if (trialSection) {
+          trialSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+
+  /* ==========================================================================
+     7. TRIAL FORM WHATSAPP SUBMISSION
+     ========================================================================== */
+  const trialForm = document.getElementById('trial-form');
+
+  if (trialForm) {
+    trialForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
+      const age = document.getElementById('age') ? document.getElementById('age').value.trim() : '';
+      const course = document.getElementById('course') ? document.getElementById('course').value.trim() : '';
+      const country = document.getElementById('country') ? document.getElementById('country').value.trim() : '';
+      const time = document.getElementById('time') ? document.getElementById('time').value.trim() : 'Flexible / As arranged';
+
+      // Format professional WhatsApp message
+      const formattedMessage = `Assalam-o-Alaikum! I would like to request a 3-Day Free Trial at The Best Online Islamic Center.
+
+*Student/Parent Name:* ${name}
+*Learner's Age:* ${age}
+*Selected Course:* ${course}
+*Country/Time Zone:* ${country}
+*Preferred Schedule:* ${time}`;
+
+      const encodedMessage = encodeURIComponent(formattedMessage);
+      const waUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp in a new tab
+      window.open(waUrl, '_blank');
+    });
+  }
+
+
+  /* ==========================================================================
+     8. BACK TO TOP BUTTON & SCROLL REVEAL
+     ========================================================================== */
+  const backtopBtn = document.getElementById('backtop');
+
+  window.addEventListener('scroll', () => {
+    if (backtopBtn) {
+      if (window.scrollY > 400) {
+        backtopBtn.style.display = 'block';
+        backtopBtn.style.opacity = '1';
+      } else {
+        backtopBtn.style.opacity = '0';
+        setTimeout(() => {
+          if (window.scrollY <= 400) backtopBtn.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    // Scroll reveal animation for elements with .reveal class
+    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(reveal => {
+      const elementTop = reveal.getBoundingClientRect().top;
+      const elementVisible = 120;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveal.classList.add('active');
+        reveal.style.opacity = '1';
+        reveal.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  if (backtopBtn) {
+    backtopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+});
