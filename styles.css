@@ -1056,3 +1056,8 @@ footer {
     border-radius: 50%;
   }
 }
+/* Website open hote hi sara content baghair scroll ke dikhane ke liye */
+.reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
