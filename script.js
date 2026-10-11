@@ -301,3 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+// Page load hote hi sare visible components show karwane ke liye
+window.addEventListener('load', () => {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(reveal => {
+    reveal.classList.add('active');
+    reveal.style.opacity = '1';
+    reveal.style.transform = 'translateY(0)';
+  });
+});
