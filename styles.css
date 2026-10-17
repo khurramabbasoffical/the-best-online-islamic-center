@@ -1056,8 +1056,37 @@ footer {
     border-radius: 50%;
   }
 }
-/* Website open hote hi sara content baghair scroll ke dikhane ke liye */
+/* Smooth Load Animation - Content chhupe bina smooth glide karega */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0.3;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .reveal {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  animation: smoothFadeIn 0.8s ease-out forwards;
+}
+
+/* Interactive Hover Effects - Cards aur Buttons ke liye */
+.course, .price-card, .teacher, .step {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.course:hover, .price-card:hover, .teacher:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 35px rgba(0, 31, 92, 0.15) !important;
+}
+
+.btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
 }
